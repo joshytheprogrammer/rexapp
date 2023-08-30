@@ -22,7 +22,7 @@
     </ul>
     <ul class="w-fit flex items-center m-auto lg:m-0">
       <li class="cursor-pointer"> 
-        <NuxtLink class=" flex items-center hover:text-green-500 transition-all duration-300" to="/account/wishlist">
+        <NuxtLink class=" flex items-center hover:text-green-500 transition-all duration-300" to="/account/my?page=wishlist">
           <Icon class="hover:text-green-500" name="mdi:heart-outline" size="1.55em" />
           <span class="pl-1">Wishlist</span>
         </NuxtLink> 
