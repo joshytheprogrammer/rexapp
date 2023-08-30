@@ -3,6 +3,8 @@
     <AccountNav :pageID="pageID" />
     <div class="page">
       <AccountProfile v-show="pageID === 'profile'" :user="user" :token="token" />
+      <AppComingSoon v-show="pageID === 'orders'" />
+      <AppComingSoon v-show="pageID === 'wishlist'" />
     </div>
   </div>
 </template>
