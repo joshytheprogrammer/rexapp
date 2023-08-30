@@ -11,7 +11,7 @@
     </div>
     <div class="w-full">
       <h2 class="py-4 text-2xl font-medium leading-9 tracking-tight text-gray-900">Address Information</h2>
-      
+      <AccountProfileAddress :user="user" :token="token" />
     </div>
   </div>
 </template>

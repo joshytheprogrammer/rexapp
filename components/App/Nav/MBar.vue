@@ -24,7 +24,7 @@
         </NuxtLink>
       </div>
     </nav>
-    <section class="fixed z-50 top-0 left-0 p-4 h-full bg-white w-2/3 transform transition-transform" :class="{ '-translate-x-full': !sideMenu, 'translate-x-0': sideMenu }">
+    <section class="fixed z-50 top-0 left-0 p-4 h-full bg-white w-11/12 transform transition-transform" :class="{ '-translate-x-full': !sideMenu, 'translate-x-0': sideMenu }">
       <div class="w-full flex justify-between items-center">
         <NuxtLink class="flex items-center space-around no-underline" to="/">
           <Icon class="text-green-800" size="2em" name="ph:car-fill" />
@@ -55,7 +55,7 @@
         <NuxtLink v-if="!getUserData()" to="/account/auth">Login / Signup</NuxtLink>  
         <p v-else>
           <span class="block font-normal">Welcome back</span>
-          <NuxtLink to="/account/my" class="text-green-800">{{ getUserData().name }}</NuxtLink> 
+          <NuxtLink to="/account/my" class="text-green-800 text-sm">{{ getUserData().name }}</NuxtLink> 
           <!-- <NuxtLink to="/account/my" class="text-green-800" > </NuxtLink> -->
         </p>
       </p>
