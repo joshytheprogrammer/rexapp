@@ -16,8 +16,8 @@ export const useAuthStore = defineStore('auth', {
 
       this.auth.loading = true;
 
-      const { data, error } = await useFetch('/api/auth/login', {
-        baseURL: 'http://localhost:5000',
+      const { data, error } = await useFetch('/auth/login', {
+        baseURL: useRuntimeConfig().public.baseURL,
         method: "POST",
         body: regData,
         credentials: 'include'
@@ -62,8 +62,8 @@ export const useAuthStore = defineStore('auth', {
       const notification = useNotificationStore();
       this.auth.loading = true;
 
-      const { data, error } = await useFetch('/api/auth/signup', {
-        baseURL: 'http://localhost:5000',
+      const { data, error } = await useFetch('/auth/signup', {
+        baseURL: useRuntimeConfig().public.baseURL,
         method: "POST",
         body: regData,
       });
@@ -93,7 +93,7 @@ export const useAuthStore = defineStore('auth', {
     },
     async me() {
       const { data, error } = await useFetch('/auth/me', {
-        baseURL: 'http://localhost:5000/api',
+        baseURL: useRuntimeConfig().public.baseURL,
         headers: {
           authorization: this.auth.token,
         },
@@ -111,8 +111,8 @@ export const useAuthStore = defineStore('auth', {
     async logout() {
       const refreshToken = useCookie('refreshToken').value;
 
-      const { data, error } = await useFetch('/api/auth/logout', {
-        baseURL: 'http://localhost:5000',
+      const { data, error } = await useFetch('/auth/logout', {
+        baseURL: useRuntimeConfig().public.baseURL,
         method: 'POST',
         body: { refreshToken },
         credentials: 'include'

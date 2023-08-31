@@ -1,11 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  app: {
-    head: {
-      script: [
-        
-      ]
-    }   
+  runtimeConfig: {
+    public: {
+      baseURL: process.env.BASE_URL || 'https://api.rexapp.com/api',
+    },
   },
   devtools: { enabled: true },
   css: [],

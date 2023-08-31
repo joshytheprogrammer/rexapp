@@ -23,7 +23,7 @@
   });
   
   const { data, error } = await useFetch('/categories/all?fields=_id,name&sort=name', {
-    baseURL: 'http://localhost:5000/api',
+    baseURL: useRuntimeConfig().public.baseURL,
   });
 
   function performRedirect() {

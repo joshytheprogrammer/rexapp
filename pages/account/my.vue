@@ -21,7 +21,7 @@ const token = computed(() => authStore.getAuth.token);
 const pageID = computed(() => route.query.page || "profile");
 
 const { data: user, error } = await useFetch('/user/profile', {
-  baseURL: 'http://localhost:5000/api',
+  baseURL: useRuntimeConfig().public.baseURL,
   headers: {
     authorization: token,
   },
