@@ -3,7 +3,7 @@
     <AccountNav :pageID="pageID" />
     <div class="page">
       <AccountProfile v-show="pageID === 'profile'" :user="user" :token="token" />
-      <Transition name="fade" mode="out-in" appear>
+      <Transition name="fade" mode="out-in">
         <AppComingSoon v-show="pageID === 'orders'" />
       </Transition>
       <Transition name="fade" mode="'out-in'">
