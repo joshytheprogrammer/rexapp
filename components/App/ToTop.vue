@@ -1,7 +1,7 @@
 <template>
   <Transition name="blur" mode="out-in">
     <div class="flex justify-center items-center fixed bottom-20 right-4 z-10" v-show="showBar">
-      <button class="bg-green-800 rounded-full text-white cursor-pointer p-2" @click="scrollToTop">
+      <button class="bg-green-800 shadow-lg rounded-full text-white cursor-pointer p-2" @click="scrollToTop">
         <Icon name="mdi:arrow-top" size="1.55em" class="text-white" />
       </button>
     </div>
