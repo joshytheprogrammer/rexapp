@@ -1,26 +1,37 @@
 <template>
   <div>
-    <div class="bg-gray-200">
-      <div class="max-w-full mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-4 gap-4">
+    <div class="bg-transparent w-72 md:w-fit border rounded-md my-4">
+      <div class="max-w-fit md:max-w-full md:mx-auto md:py-6 md:px-4 lg:px-8">
+        <div class="md:grid grid-cols-4 gap-4 items-center">
           <div class="col-span-1">
-            <img src="product-image.jpg" class="max-w-full h-auto object-cover">
+            <img src="https://risingtheme.com/html/demo-partsix/partsix/assets/img/product/main-product/product2.webp" class="w-full max-h-48 object-cover md:h-auto">
           </div>
           <div class="col-span-3">
-            <div class="flex flex-col justify-between">
-              <div class="flex-grow">
-                <h2 class="text-lg font-semibold text-gray-800">Amazon Cloud Cam Security Camera</h2>
-                <p class="text-gray-600 mb-4">-20%</p>
-                <p class="text-gray-600">
-                  $188.52
-                  <span class="text-green-800">$268.00</span>
+            <div class="p-4 text-gray-700 text-left">
+              <p class="">
+                <span class="text-black font-semibold text-base md:text-lg">Amazon Cloud Cam Security Camera</span>
+                <p class="flex items-center justify-start">
+                  <template v-for="(index) in 5">
+                    <span class="text-green-800 pr-2" v-if="index <= rating">
+                      <Icon name="clarity:star-solid" />
+                    </span>
+                    <span class="text-gray-800 pr-2" v-if="index > rating">
+                      <Icon name="clarity:star-line" />
+                    </span>
+                  </template>
+                  <span class="font-semibold text-gray-800 text-sm">
+                    (126) Review
+                  </span>
                 </p>
-                <p class="text-gray-600 mb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia voluptas dolore doloribus architecto sequi corporis deleniti officia culpa dolor esse there consectetur eligendi, natus at rom ab quae amet molestiae quod voluptates.
-                </p>
+              </p>
+              <div class="py-4">
+                <p class="pb-1 text-grey-700 font-semibold text-base"> {{ formatPrice(20000) + " - " + formatPrice(50000) }}</p>
+                <p class="hidden md:block">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit aliquam earum pariatur itaque deleniti, cumque voluptatibus voluptate quod debitis autem omnis ab iusto quibusdam fuga inventore sit maxime perspiciatis fugit?</p>
               </div>
-              <div class="flex justify-end">
-                <button class="btn btn-primary">ADD TO CART</button>
+              <div class="flex justify-between">
+                <button class="bg-green-800 hover:bg-green-900 transition-all duration-300 text-white text-xs font-medium rounded-md px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800">
+                  ADD TO CART
+                </button>
               </div>
             </div>
           </div>
@@ -32,7 +43,8 @@
 </template>
 
 <script setup>
-
+const { formatPrice } = usePriceUtilities();
+const rating = 2;
 </script>
 
 <style lang="scss" scoped>

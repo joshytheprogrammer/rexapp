@@ -1,13 +1,13 @@
 <template>
   <div class="bg-transparent border rounded-md w-72 mx-2 my-4">
-    <img src="https://risingtheme.com/html/demo-partsix/partsix/assets/img/product/main-product/product5.webp" class="w-full max-h-48  object-contain">
+    <img src="https://risingtheme.com/html/demo-partsix/partsix/assets/img/product/main-product/product5.webp" class="w-full max-h-48 object-contain">
     <div class="p-4 text-gray-700 text-left">
       <p class="flex items-center justify-start">
         <template v-for="(index) in 5">
-          <span class="text-green-800 pr-2" v-if="index < rating">
+          <span class="text-green-800 pr-2" v-if="index <= rating">
             <Icon name="clarity:star-solid" />
           </span>
-          <span class="text-gray-800 pr-2" v-if="index >= rating">
+          <span class="text-gray-800 pr-2" v-if="index > rating">
             <Icon name="clarity:star-line" />
           </span>
         </template>

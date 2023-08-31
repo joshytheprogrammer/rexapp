@@ -20,3 +20,23 @@ body {
 h1, h2, h3, h4, h5 ,h6 {
   font-family: 'Poppins', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
 }
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter, 
+.fade-leave-active {
+  opacity: 0;
+}
+
+.blur-enter-active,
+.blur-leave-active {
+  transition: all 0.4s;
+}
+.blur-enter-from,
+.blur-leave-to {
+  opacity: 0;
+  filter: blur(1rem);
+}
