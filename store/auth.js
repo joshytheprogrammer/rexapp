@@ -92,7 +92,7 @@ export const useAuthStore = defineStore('auth', {
       this.auth.loading = false;
     },
     async me() {
-      const { data, error } = await useFetch('/api/auth/me', {
+      const { data, error } = await useFetch('/auth/me', {
         baseURL: 'http://localhost:5000/api',
         headers: {
           authorization: this.auth.token,
