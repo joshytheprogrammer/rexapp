@@ -16,13 +16,13 @@
   const {buildQuery} = useSearchUtilities();
 
   let query = ref(route.query.q);
-  let category_id = computed(() => route.query.c || 'all');
+  let category_id = ref(route.query.c || 'all');
 
   watch(() => route.query, () => {
     query.value = route.query.q;
   });
   
-  const { data, error } = await useFetch('/categories/all?fields=_id,name&sort=name ', {
+  const { data, error } = await useFetch('/categories/all?fields=_id,name&sort=name', {
     baseURL: 'http://localhost:5000/api',
   });
 

@@ -19,7 +19,7 @@
       <div class="md:flex-nowrap text-center flex justify-between basis-1/2 gap-2 lg:text-left lg:gap-4">
         <div class="md:basis-1/3">
           <h3 class="text-xl font-semibold leading-9 tracking-tight">MY ACCOUNT</h3>
-          <ul class="text-sm md:text-base font-normal md:font-medium">
+          <ul class="text-sm text-gray-200 md:text-base font-normal md:font-medium">
             <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
               <NuxtLink to="/account/my">My Profile</NuxtLink>
             </li>
@@ -39,7 +39,7 @@
         </div>
         <div class="md:basis-1/3">
           <h3 class="text-xl font-semibold leading-9 tracking-tight">PAGE RESOURCES</h3>
-          <ul class="text-sm md:text-base font-normal md:font-medium">
+          <ul class="text-sm text-gray-200 md:text-base font-normal md:font-medium">
             <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
               <NuxtLink to="/contact">Contact Us</NuxtLink>
             </li>
@@ -58,8 +58,8 @@
           </ul>
         </div>
         <div class="md:basis-1/3">
-          <h3 class="text-xl font-semibold leading-9 tracking-tight">FIND BY CATEGORY</h3>
-          <ul class="text-sm md:text-base font-normal md:font-medium">
+          <h3 class="text-xl text-gray-200 font-semibold leading-9 tracking-tight">FIND BY CATEGORY</h3>
+          <ul class="text-sm text-gray-200 md:text-base font-normal md:font-medium">
             <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
               <NuxtLink to="/category/">Engine Parts</NuxtLink>
             </li>

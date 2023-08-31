@@ -17,10 +17,11 @@
   const route = useRoute();
 
   const query = computed(() => route.query.q);
+  const category_id = computed(() => route.query.c || 'all');
   
-  const { data: results, pending, error, refresh } = await useFetch(() => `/api/search/exec?q=${query.value}`, {
+  const { data: results, pending, error, refresh } = await useFetch(() => `/api/search/exec?q=${query.value}&c=${category_id.value}`, {
     baseURL: 'http://localhost:5000',
-    watch: [query],
+    watch: [query, category_id],
     immediate: true,
   });
 </script>
