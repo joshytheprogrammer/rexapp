@@ -2,6 +2,7 @@
   <div class="app">
     <AppNavStrip />
     <AppUtilsNotification />
+    <AppUtilsQCart />
     <AppNavMBar v-show="isMobile"  />
     <AppNavBar v-show="!isMobile" />
     <main>

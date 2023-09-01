@@ -117,7 +117,10 @@ export const useCartStore = defineStore('cart', {
       return state.cart.some(p => p.partId === id);
     },
     isAuth() {
-      return !!useAuthStore().getAuth.token
+      return !!useAuthStore().getAuth.token;
+    },
+    isShowingQCart() {
+      return this.showingQuickCart;
     }
   }
 })

@@ -75,29 +75,29 @@
 </template>
 
 <script setup>
-  import { useCartStore } from "@/store/cart";
+import { useCartStore } from "@/store/cart";
 
-  const route = useRoute();
-  const { getUserData } = useUserUtilities();
-  
-  const cartStore = useCartStore();
+const route = useRoute();
+const { getUserData } = useUserUtilities();
 
-  let sideMenu = ref(false);
-  let showSearch = ref(false);
+const cartStore = useCartStore();
 
-  watch(() => route.fullPath, () => {
-    sideMenu.value = false;
-    showSearch.value = false;
-  });
+let sideMenu = ref(false);
+let showSearch = ref(false);
+
+watch(() => route.fullPath, () => {
+  sideMenu.value = false;
+  showSearch.value = false;
+});
 
 
-  function toggleMenu() {
-    sideMenu.value = !sideMenu.value
-  }
+function toggleMenu() {
+  sideMenu.value = !sideMenu.value
+}
 
-  function toggleSearch() {
-    showSearch.value = !showSearch.value
-  }
+function toggleSearch() {
+  showSearch.value = !showSearch.value
+}
 </script>
 
 <style lang="postcss" scoped>
