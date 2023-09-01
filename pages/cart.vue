@@ -9,12 +9,12 @@
     <p> 
       Is item 1 in cart {{ cartStore.itemInCart(1) }}
     </p>
-
     <p> 
       Is item 2 in cart {{ cartStore.itemInCart(2) }}
     </p>
-    <button @click="cartStore.addItem({_id: 0})">Add item</button>
+    <button @click="cartStore.addItem({_id: 2})">Add item</button>
     <button @click="cartStore.removeItem(0)">Remove item</button>
+    <button @click="cartStore.clearCart()">Clear cart</button>
   </div>
 </template>
 

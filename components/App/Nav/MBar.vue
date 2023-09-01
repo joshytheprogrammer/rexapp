@@ -55,8 +55,7 @@
         <NuxtLink v-if="!getUserData()" to="/account/auth">Login / Signup</NuxtLink>  
         <p v-else>
           <span class="block font-normal">Welcome back</span>
-          <NuxtLink to="/account/my" class="text-green-800 text-sm">{{ getUserData().name }}</NuxtLink> 
-          <!-- <NuxtLink to="/account/my" class="text-green-800" > </NuxtLink> -->
+          <NuxtLink to="/account/my" class="text-green-800 text-sm">{{ getUserData().name }}</NuxtLink>
         </p>
       </p>
     </section>
