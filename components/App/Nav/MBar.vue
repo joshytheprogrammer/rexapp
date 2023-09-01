@@ -18,7 +18,7 @@
         <span class="block cursor-pointer" @click="toggleSearch">
           <Icon name="uil:search" size="1.55em" />
         </span>
-        <NuxtLink to="/cart" class="block ml-8">
+        <NuxtLink @click.prevent="cartStore.toggleQuickCart()" class="block ml-8">
           <span class="block rounded-xl text-center font-bold text-black text-xs">{{ cartStore.getCartNo }}</span>
           <Icon name="mdi:cart-outline" size="1.55em" />
         </NuxtLink>

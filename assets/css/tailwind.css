@@ -41,3 +41,12 @@ h1, h2, h3, h4, h5 ,h6 {
   opacity: 0;
   filter: blur(1rem);
 }
+
+.slide-in-enter-active,
+.slide-in-leave-active {
+  transition: all .5s;
+}
+.slide-in-enter, .slide-in-leave-to /* .slide-in-leave-active in <2.1.8 */ {
+  transform: translateX(100%);
+  opacity: 0;
+}

@@ -13,7 +13,7 @@
       </div>
       <div class="flex items-center">
         <div class="cursor-pointer px-4">
-          <NuxtLink to="/cart" class="block px-1">
+          <NuxtLink @click.prevent="cartStore.toggleQuickCart()" class="block px-1">
             <span class="block rounded-xl text-center font-bold text-black text-xs">{{ cartStore.getCartNo }}</span>
             <Icon name="mdi:cart-outline" size="1.55em" />
           </NuxtLink>
