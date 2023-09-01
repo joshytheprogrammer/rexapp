@@ -15,7 +15,7 @@
     <p> 
       Is item 2 in cart {{ cartStore.itemInCart(2) }}
     </p>
-    <button @click="cartStore.addItem({_id: 2})">Add item</button>
+    <button @click="cartStore.addItem({partId: '64ee6fb06725f623424c7b20', quantity: 1})">Add item</button>
     <button @click="cartStore.removeItem(0)">Remove item</button>
     <button @click="cartStore.clearCart()">Clear cart</button>
   </div>
@@ -25,4 +25,7 @@
 import { useCartStore } from "@/store/cart";
 const cartStore = useCartStore();
 
+onMounted(() => {
+  if(cartStore.isAuth){cartStore.syncCart()}
+});
 </script>

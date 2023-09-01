@@ -19,7 +19,7 @@ export const useCartStore = defineStore('cart', {
     addItem(product) {
       const notification = useNotificationStore();
     
-      if (this.cart.some(item => item._id === product._id)) {
+      if (this.cart.some(item => item.partId === product.partId)) {
         notification.setNotification({
           type: 'error',
           message: 'Item already in cart',
@@ -29,9 +29,12 @@ export const useCartStore = defineStore('cart', {
     
       this.cart.push(product);
       useCookie('cart').value = this.cart;
+
+      // If user is authenticated, sync cart with server
+      if(this.isAuth){this.syncCart();}
     },
     removeItem(id) {
-      const index = this.cart.findIndex(item => item._id === id);
+      const index = this.cart.findIndex(item => item.partId === id);
 
       if (index === -1) {
         return
@@ -39,20 +42,40 @@ export const useCartStore = defineStore('cart', {
 
       this.cart.splice(index, 1);
       useCookie('cart').value = [...this.cart];
+
+      // If user is authenticated, sync cart with server
+      if(this.isAuth){this.syncCart();}
     },
     clearCart() {
       this.cart = [];
       useCookie('cart').value = this.cart;
+
+      // If user is authenticated, sync cart with server
+      if(this.isAuth){this.syncCart();}
     },
     async syncCart() {
-      const { data, error } = await useFetch('/cart/sync-cart', {
-        baseURL: useRuntimeConfig().public.baseURL,
-        headers: {
-          authorization: token,
-        },
-      })
+      const notification = useNotificationStore();
 
+      const { error } = await useFetch('/cart/sync-cart', {
+        baseURL: useRuntimeConfig().public.baseURL,
+        method: "POST",
+        headers: {
+          authorization: useAuthStore().getAuth.token,
+        },
+        body: JSON.stringify({ cart: this.cart })
+      });
+
+      if (error.value) {
+        const errorMessage = error.value.data?.message || "An error occurred wehn syncing your cart.";
       
+        notification.setNotification({
+          type: 'error',
+          message: errorMessage,
+        });
+      
+        return
+      }
+
     }
   },
   getters: {
@@ -63,7 +86,7 @@ export const useCartStore = defineStore('cart', {
       return this.cart.length;
     },
     itemInCart: (state) => (id) => {
-      return state.cart.some(p => p._id === id);
+      return state.cart.some(p => p.partId === id);
     },
     isAuth() {
       return !!useAuthStore().getAuth.token
