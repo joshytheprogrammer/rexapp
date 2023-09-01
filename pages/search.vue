@@ -1,6 +1,8 @@
 <template>
   <div>
     {{ results }}
+    <AppProductHCard />
+    <AppProductLHCard />
     <!-- <h1>{{ pending }}</h1>
     <h2>Search Results for  {{ query }} with an ID of {{ searchID }} - products</h2>
     <p v-for="item in products" :key="item._id">
