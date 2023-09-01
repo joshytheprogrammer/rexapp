@@ -13,9 +13,9 @@ export const useCartStore = defineStore('cart', {
     }
   }),
   actions: {
-    toggleQuickCart() {
-      this.showingQuickCart = !this.showingQuickCart;
-    },
+    toggleQuickCart(type) {
+      this.showingQuickCart = type !== undefined ? type : !this.showingQuickCart;
+    },    
     addItem(product) {
       const notification = useNotificationStore();
     

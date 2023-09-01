@@ -14,7 +14,14 @@
       </div>
       <ul class="min-h-screen">
         <AppProductQCCard />
+        <AppProductQCCard />
+        <AppProductQCCard />
       </ul>
+      <div class="flex justify-between text-white">
+        <NuxtLink to="/cart/"  class="px-4 py-2 bg-green-800 hover:bg-green-900 border-green-800 border rounded-md">View Cart</NuxtLink>
+        <button class="px-4 py-2 bg-green-800 hover:bg-green-900 border-green-800 border rounded-md" v-if="cartStore.isAuth">Checkout</button>
+        <NuxtLink to="/account/auth/" class="px-4 py-2 bg-green-800 hover:bg-green-900 border-green-800 border rounded-md" v-else>Login to Checkout</NuxtLink>
+      </div>
     </div>
   </div>
 </template>
@@ -22,12 +29,18 @@
 <script setup>
 import { useCartStore } from '@/store/cart';
 
+const route = useRoute();
 const cartStore = useCartStore();
+
 let sideMenu = computed(() => cartStore.showingQuickCart);
 
 function toggleMenu() {
   cartStore.toggleQuickCart()
 }
+
+watch(() => route.fullPath, () => {
+  cartStore.toggleQuickCart(false)
+});
 
 watch(sideMenu, (newValue) => {
   if (newValue) {
