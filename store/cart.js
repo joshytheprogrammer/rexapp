@@ -14,7 +14,7 @@ export const useCartStore = defineStore('cart', {
   }),
   actions: {
     toggleQuickCart() {
-      this.showingQuickCart = !this.showingQuickCart
+      this.showingQuickCart = !this.showingQuickCart;
     },
     addItem(product) {
       const notification = useNotificationStore();
@@ -43,18 +43,17 @@ export const useCartStore = defineStore('cart', {
     clearCart() {
       this.cart = [];
       useCookie('cart').value = this.cart;
-
     }
   },
   getters: {
     getCartItems() {
-      return this.cart
+      return this.cart;
     },
     getCartNo() {
-      return this.cart.length
+      return this.cart.length;
     },
     itemInCart: (state) => (id) => {
-      return state.cart.some(p => p._id === id)
+      return state.cart.some(p => p._id === id);
     },
   }
 })

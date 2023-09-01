@@ -29,7 +29,7 @@
 
   function performRedirect() {
     if(query.value.length < 3) {return;}
-    buildQuery(query.value, category_id.value)
+    buildQuery(query.value, category_id.value);
   }
 </script>
 
