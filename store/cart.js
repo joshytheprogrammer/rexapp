@@ -6,6 +6,11 @@ export const useCartStore = defineStore('cart', {
     auth: !!useCookie('user'),
     showingQuickCart: false,
     cart: useCookie('cart').value || [],
+    summary: {
+      subtotal: 0,
+      taxes: 0,
+      total: 0
+    }
   }),
   actions: {
     toggleQuickCart() {
@@ -14,9 +19,7 @@ export const useCartStore = defineStore('cart', {
     addItem(product) {
       const notification = useNotificationStore();
     
-      const cartItemExists = this.cart.some(item => item._id === product._id);
-    
-      if (cartItemExists) {
+      if (this.cart.some(item => item._id === product._id)) {
         notification.setNotification({
           type: 'error',
           message: 'Item already in cart',
@@ -36,6 +39,11 @@ export const useCartStore = defineStore('cart', {
 
       this.cart.splice(index, 1);
       useCookie('cart').value = [...this.cart];
+    },
+    clearCart() {
+      this.cart = [];
+      useCookie('cart').value = this.cart;
+
     }
   },
   getters: {

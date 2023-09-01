@@ -6,7 +6,6 @@
     <p>
       The items include {{ cartStore.getCartItems }}
     </p>
-
     <p> 
       Is item 1 in cart {{ cartStore.itemInCart(1) }}
     </p>
