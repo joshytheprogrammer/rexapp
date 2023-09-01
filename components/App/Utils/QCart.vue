@@ -12,10 +12,12 @@
         
         <p class="pt-4 text-gray-600">Experience the ultimate convenience of completing your purchase in a matter of seconds.</p>
       </div>
+      <ul class="min-h-screen">
+        <AppProductQCCard />
+      </ul>
     </div>
   </div>
 </template>
-
 
 <script setup>
 import { useCartStore } from '@/store/cart';
@@ -26,6 +28,15 @@ let sideMenu = computed(() => cartStore.showingQuickCart);
 function toggleMenu() {
   cartStore.toggleQuickCart()
 }
+
+watch(sideMenu, (newValue) => {
+  if (newValue) {
+    document.getElementsByTagName('html')[0].classList.add('overflow-y-hidden');
+
+  } else {
+    document.getElementsByTagName('html')[0].classList.remove('overflow-y-hidden');
+  }
+});
 </script>
 
 <style lang="scss" scoped>

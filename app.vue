@@ -15,11 +15,11 @@
 </template>
 
 <script setup>
-  import { useMobileStore } from '@/store/mobile';
-
   useHead({
     title: 'Discover Your Automotive Needs with RexApp: Your One-Stop Auto Parts Solution',
   });
+
+  import { useMobileStore } from '@/store/mobile';
   
   const device = useMobileStore();
 

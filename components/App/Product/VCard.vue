@@ -17,7 +17,7 @@
       </p>
       <p class="py-4 space-y-2">
         <span class="text-black font-semibold text-base">Amazon Cloud Cam Security Camera</span>
-        <span class="block text-grey-700 font-semibold text-base"> {{ formatPrice(20000) + " - " + formatPrice(50000) }}</span>
+        <span class="block text-gray-700 font-semibold text-base"> {{ formatPrice(20000) + " - " + formatPrice(50000) }}</span>
       </p>
       <div class="flex justify-between">
         <button class="bg-green-800 hover:bg-green-900 transition-all duration-300 text-white text-xs font-medium rounded-md px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800">
