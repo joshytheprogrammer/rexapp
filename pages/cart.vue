@@ -15,8 +15,9 @@
     <p> 
       Is item 2 in cart {{ cartStore.itemInCart(2) }}
     </p>
-    <button @click="cartStore.addItem({partId: '64ee6fb06725f623424c7b20', quantity: 1})">Add item</button>
-    <button @click="cartStore.removeItem(0)">Remove item</button>
+    <button @click="cartStore.addItem({partId: '64ee6fb06725f623424c7b20', quantity: 1})">Add item1</button>
+    <button @click="cartStore.addItem({partId: '64ee6fb06525f623424c7b20', quantity: 1})">Add item2</button>
+    <button @click="cartStore.removeItem('64ee6fb06725f623424c7b20')">Remove item</button>
     <button @click="cartStore.clearCart()">Clear cart</button>
   </div>
 </template>

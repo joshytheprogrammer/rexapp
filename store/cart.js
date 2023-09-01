@@ -41,7 +41,7 @@ export const useCartStore = defineStore('cart', {
       }
 
       this.cart.splice(index, 1);
-      useCookie('cart').value = [...this.cart];
+      setCookie('cart').value = [...this.cart];
 
       // If user is authenticated, sync cart with server
       if(this.isAuth){this.syncCart();}
@@ -86,22 +86,24 @@ export const useCartStore = defineStore('cart', {
         },
       });
 
-      console.log(data.value)
+      const cartData = data.value.cart;
 
-      // const mergedCart = [...this.cart];
+      const mergedCart = [...this.cart];
 
-      // // Iterate through each item in the received cartData
-      // for (const itemFromServer of cartData) {
-      //   const existingItem = mergedCart.find(item => item.partId === itemFromServer.partId);
+      // Iterate through each item in the received cartData
+      for (const itemFromServer of cartData) {
+        const existingItem = mergedCart.find(item => item.partId === itemFromServer.partId);
 
-      //   if (existingItem) {
-      //     existingItem.quantity += itemFromServer.quantity;
-      //   } else {
-      //     mergedCart.push(itemFromServer);
-      //   }
-      // }
+        if (existingItem) {
+          existingItem.quantity += itemFromServer.quantity;
+        } else {
+          mergedCart.push(itemFromServer);
+        }
+      }
 
-      // this.cart = mergedCart;
+      this.cart = mergedCart;
+
+      await this.syncCart();
     },
   },
   getters: {
