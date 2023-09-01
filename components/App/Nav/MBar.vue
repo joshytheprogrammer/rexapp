@@ -19,7 +19,7 @@
           <Icon name="uil:search" size="1.55em" />
         </span>
         <NuxtLink to="/cart" class="block ml-8">
-          <span class="block rounded-xl text-center font-bold text-black text-xs">3</span>
+          <span class="block rounded-xl text-center font-bold text-black text-xs">{{ cartStore.getCartNo }}</span>
           <Icon name="mdi:cart-outline" size="1.55em" />
         </NuxtLink>
       </div>
@@ -76,8 +76,12 @@
 </template>
 
 <script setup>
+  import { useCartStore } from "@/store/cart";
+
   const route = useRoute();
   const { getUserData } = useUserUtilities();
+  
+  const cartStore = useCartStore();
 
   let sideMenu = ref(false);
   let showSearch = ref(false);

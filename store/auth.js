@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia'
 import { useNotificationStore } from './notification'
-import { useCookie } from 'nuxt/app'
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({ 

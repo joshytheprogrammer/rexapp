@@ -14,7 +14,7 @@
       <div class="flex items-center">
         <div class="cursor-pointer px-4">
           <NuxtLink to="/cart" class="block px-1">
-            <span class="block rounded-xl text-center font-bold text-black text-xs">3</span>
+            <span class="block rounded-xl text-center font-bold text-black text-xs">{{ cartStore.getCartNo }}</span>
             <Icon name="mdi:cart-outline" size="1.55em" />
           </NuxtLink>
         </div>
@@ -69,6 +69,9 @@
 
 <script setup>
 const { getUserData } = useUserUtilities();
+import { useCartStore } from "@/store/cart";
+const cartStore = useCartStore();
+
 const size = 50;
 
 </script>
