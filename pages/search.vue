@@ -5,6 +5,9 @@
     </section>
     <section class="col-span-3">  
       <!-- {{ results }} -->
+      <div class="categories">
+        
+      </div>
       <AppProductHCard />
       <AppProductLHCard />
     </section>

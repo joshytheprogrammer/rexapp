@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-transparent border rounded-md w-72 mx-2 my-4">
+  <div class="bg-transparent border rounded-md w-72 mx-auto md:mx-2 my-4">
     <div class="animate-pulse">
       <div class="bg-gray-200 h-48"></div>
       <div class="p-4 text-gray-700 text-left">
