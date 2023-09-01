@@ -77,8 +77,31 @@ export const useCartStore = defineStore('cart', {
       }
 
     },
-    async initializeCartFromServer(cartData) {
-      this.cart = cartData;
+    async initializeCartFromServer() {
+      const { data, error } = await useFetch('/cart/', {
+        baseURL: useRuntimeConfig().public.baseURL,
+        method: "GET",
+        headers: {
+          authorization: useAuthStore().getAuth.token,
+        },
+      });
+
+      console.log(data.value)
+
+      // const mergedCart = [...this.cart];
+
+      // // Iterate through each item in the received cartData
+      // for (const itemFromServer of cartData) {
+      //   const existingItem = mergedCart.find(item => item.partId === itemFromServer.partId);
+
+      //   if (existingItem) {
+      //     existingItem.quantity += itemFromServer.quantity;
+      //   } else {
+      //     mergedCart.push(itemFromServer);
+      //   }
+      // }
+
+      // this.cart = mergedCart;
     },
   },
   getters: {

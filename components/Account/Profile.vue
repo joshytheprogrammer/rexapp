@@ -1,5 +1,5 @@
 <template>
-  <Transition name="blur" mode="'out-in'">
+  <Transition name="blur">
     <div class="px-4 sm:px-8 md:px-8 lg:px-18 py-2">
       <div class="w-full">
         <h2 class="py-4 text-2xl font-medium leading-9 tracking-tight text-gray-900">Personal Information</h2>

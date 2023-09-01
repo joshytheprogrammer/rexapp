@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { useNotificationStore } from './notification'
+import { useCartStore } from './cart'
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({ 
@@ -46,7 +47,16 @@ export const useAuthStore = defineStore('auth', {
       this.auth.token = cookie.value
 
       await this.me();
-
+      
+      try {
+        await useCartStore().initializeCartFromServer();
+      } catch (error) {
+        notification.setNotification({
+          'type': 'error',
+          'message': 'Could not fetch cart from server...'
+        });
+      }
+      
       notification.setNotification({
         'type': 'success',
         'message': 'Login Successful'
