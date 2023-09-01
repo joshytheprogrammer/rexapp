@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="bg-transparent w-72 md:w-fit border rounded-md my-4">
-      <div class="max-w-fit md:max-w-full md:mx-auto md:py-6 md:px-4 lg:px-8">
+    <div class="bg-transparent mx-auto w-72 md:w-fit border rounded-md mb-4">
+      <div class="max-w-fit md:max-w-full mx-auto md:py-6 md:px-4 lg:px-8">
         <div class="md:grid grid-cols-4 gap-4 items-center">
           <div class="col-span-1">
             <img src="https://risingtheme.com/html/demo-partsix/partsix/assets/img/product/main-product/product2.webp" class="w-full max-h-48 object-cover md:h-auto">
@@ -26,7 +26,7 @@
               </p>
               <div class="py-4">
                 <p class="pb-1 text-grey-700 font-semibold text-base"> {{ formatPrice(20000) + " - " + formatPrice(50000) }}</p>
-                <p class="hidden md:block">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit aliquam earum pariatur itaque deleniti, cumque voluptatibus voluptate quod debitis autem omnis ab iusto quibusdam fuga inventore sit maxime perspiciatis fugit?</p>
+                <p class="hidden md:block">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit aliquam earum pariatur itaque deleniti.</p>
               </div>
               <div class="flex justify-between">
                 <button class="bg-green-800 hover:bg-green-900 transition-all duration-300 text-white text-xs font-medium rounded-md px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800">

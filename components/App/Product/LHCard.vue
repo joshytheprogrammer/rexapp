@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="bg-transparent w-full border rounded-md my-4">
+    <div class="bg-transparent mx-auto w-72 md:w-full border rounded-md my-4">
       <div class="max-w-fit md:max-w-full md:mx-auto md:py-6 md:px-4 lg:px-8">
         <div class="md:grid grid-cols-4 gap-4 items-center">
           <div class="col-span-1">
-            <div class="animate-pulse bg-gray-200 h-48 w-full max-h-48 object-cover"></div>
+            <div class="animate-pulse w-72 bg-gray-200 h-48 md:w-full"></div>
           </div>
           <div class="col-span-3">
             <div class="animate-pulse p-4 text-gray-700 text-left">
