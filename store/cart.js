@@ -76,7 +76,10 @@ export const useCartStore = defineStore('cart', {
         return
       }
 
-    }
+    },
+    async initializeCartFromServer(cartData) {
+      this.cart = cartData;
+    },
   },
   getters: {
     getCartItems() {

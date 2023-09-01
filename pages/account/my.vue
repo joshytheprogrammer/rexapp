@@ -25,6 +25,9 @@ const { data: user, error } = await useFetch('/user/profile', {
   headers: {
     authorization: token,
   },
+  transform: (user) => {
+    return user.profile
+  },
 });
 
 if (error.value) {
