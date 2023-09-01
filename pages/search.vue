@@ -6,10 +6,12 @@
     <section class="col-span-3">  
       <!-- {{ results }} -->
       <div class="categories">
-        
+
       </div>
-      <AppProductHCard />
-      <AppProductLHCard />
+      <div v-for="p in results.products" :key="p._id" class="products">
+        <AppProductHCard />
+        <AppProductLHCard />
+      </div>
     </section>
     
     <!-- <h1>{{ pending }}</h1>
