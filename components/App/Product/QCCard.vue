@@ -1,7 +1,7 @@
 <template>
   <!-- This is the product card for the Quick Cart feature -->
   <li class="grid grid-cols-3 gap-4 justify-between border-b py-4">
-    <img src="https://risingtheme.com/html/demo-partsix/partsix/assets/img/product/main-product/product5.webp" alt="Product 1" class="w-full max-h-48 object-contain">
+    <img src="https://risingtheme.com/html/demo-partsix/partsix/assets/img/product/main-product/product5.webp" alt="Product 1" class="col-span-1 w-full max-h-48 object-contain">
     <div class="col-span-2">
       <span class="text-black font-semibold text-base">Amazon Cloud Cam Security Camera</span>
       <span class="block py-2 text-gray-700 font-semibold text-base"> {{ formatPrice(20000) + " - " + formatPrice(50000) }}</span>

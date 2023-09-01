@@ -1,7 +1,7 @@
 <template>
   <div class="bg-gray-100 p-4 block lg:grid grid-cols-3 gap-4 justify-between">
     <div class="col-span-2 w-full bg-white border rounded-md p-4">
-      <div class="flex justify-between">
+      <div class="flex items-center justify-between pb-4">
         <h2 class="text-2xl font-semibold relative">
           Shopping Cart
           <span class="block rounded-md mt-2 inset-x-0 bottom-0 h-1 bg-gradient-to-r from-green-300 to-green-900"></span>
@@ -9,8 +9,8 @@
 
         <NuxtLink class="text-green-800 underline lg:hidden" to="#checkout">Checkout</NuxtLink>
       </div>
-      <ul class="min-h-screen">
-
+      <ul class="py-4 min-h-screen">
+        <AppProductCCard />
       </ul>
     </div>
     <div id="checkout" class="col-span-1 w-full h-fit my-4 lg:my-0 p-4 shadow-lg rounded-md bg-white">
@@ -26,7 +26,7 @@
         <span>{{ calculateTaxes }}</span>
       </div>
       <div class="flex justify-between mb-2">
-        <span>Total:</span>
+        <span>Estimated Total:</span>
         <span>{{ calculateTotal }}</span>
       </div>
       
