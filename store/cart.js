@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia'
 import { useNotificationStore } from './notification'
+import { useAuthStore } from './auth';
 
 export const useCartStore = defineStore('cart', {
-  state: () => ({ 
-    auth: !!useCookie('user'),
+  state: () => ({
     showingQuickCart: false,
     cart: useCookie('cart').value || [],
     summary: {
@@ -43,6 +43,16 @@ export const useCartStore = defineStore('cart', {
     clearCart() {
       this.cart = [];
       useCookie('cart').value = this.cart;
+    },
+    async syncCart() {
+      const { data, error } = await useFetch('/cart/sync-cart', {
+        baseURL: useRuntimeConfig().public.baseURL,
+        headers: {
+          authorization: token,
+        },
+      })
+
+      
     }
   },
   getters: {
@@ -55,5 +65,8 @@ export const useCartStore = defineStore('cart', {
     itemInCart: (state) => (id) => {
       return state.cart.some(p => p._id === id);
     },
+    isAuth() {
+      return !!useAuthStore().getAuth.token
+    }
   }
 })

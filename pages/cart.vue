@@ -1,6 +1,9 @@
 <template>
   <div>
     <p>
+      Is the user authenticated {{ cartStore.isAuth }}
+    </p>
+    <p>
       There are {{ cartStore.getCartNo }} items in cart
     </p>
     <p>
