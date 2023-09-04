@@ -16,7 +16,7 @@
         </span>
       </p>
       <p class="py-4 space-y-2">
-        <span class="text-black font-semibold text-base">Amazon Cloud Cam Security Camera</span>
+        <NuxtLink to="/shop/" class="text-black font-semibold text-base md:text-lg hover:text-green-800">Amazon Cloud Cam Security Camera</NuxtLink>
         <span class="block text-gray-700 font-semibold text-base"> {{ formatPrice(20000) + " - " + formatPrice(50000) }}</span>
       </p>
       <div class="flex justify-between">

@@ -9,7 +9,7 @@
           <div class="col-span-3">
             <div class="p-4 text-gray-700 text-left">
               <p class="">
-                <span class="text-black font-semibold text-base md:text-lg">Amazon Cloud Cam Security Camera</span>
+                <NuxtLink to="/shop/" class="text-black font-semibold text-base md:text-lg hover:text-green-800">Amazon Cloud Cam Security Camera</NuxtLink>
                 <p class="flex items-center justify-start">
                   <template v-for="(index) in 5">
                     <span class="text-green-800 pr-2" v-if="index <= rating">
