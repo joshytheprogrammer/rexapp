@@ -1,6 +1,5 @@
 <template>
-  <!-- This is the product card for the Quick Cart feature -->
-  <li class="grid grid-cols-3 gap-4 justify-between border-b py-4">
+  <li class="grid grid-cols-3 gap-4 justify-between border-b py-8">
     <img src="https://risingtheme.com/html/demo-partsix/partsix/assets/img/product/main-product/product5.webp" alt="Product 1" class="col-span-1 w-full max-h-48 object-contain">
     <div class="col-span-2">
       <span class="text-black font-semibold text-base">Amazon Cloud Cam Security Camera</span>
