@@ -38,7 +38,7 @@
           </ul>
         </div>
         <div class="md:basis-1/3">
-          <h3 class="text-xl font-semibold leading-9 tracking-tight">PAGE RESOURCES</h3>
+          <h3 class="text-xl font-semibold leading-9 tracking-tight">SITE RESOURCES</h3>
           <ul class="text-sm text-gray-200 md:text-base font-normal md:font-medium">
             <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
               <NuxtLink to="/contact">Contact Us</NuxtLink>
