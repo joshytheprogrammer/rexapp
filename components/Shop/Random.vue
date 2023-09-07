@@ -6,12 +6,10 @@
 </template>
 
 <script setup>
-const { data, pending, error, refresh } = await useFetch('/products/random?limit=4&fields=_id,name,price,slug,imageURL,rating', {
+const { data, pending, error } = await useFetch('/products/random?limit=4&fields=_id,name,price,slug,imageURL,rating', {
   baseURL: useRuntimeConfig().public.baseURL,
   immediate: true,
 });
-
-console.log(data.value)
 </script>
 
 <style lang="scss" scoped>
