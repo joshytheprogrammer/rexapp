@@ -42,5 +42,4 @@ const updateQuantity = () => {
 const { data } = await useFetch(() => `/products/${props.p.partId}`, {
   baseURL: useRuntimeConfig().public.baseURL,
 });
-
 </script>

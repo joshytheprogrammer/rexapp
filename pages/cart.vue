@@ -13,50 +13,9 @@
         <AppProductCCard :p="p" />
       </ul>
     </div>
-    <div id="checkout" class="col-span-1 w-full h-fit my-4 lg:my-0 p-4 shadow-lg rounded-md bg-white">
-      <h2 class="text-xl font-semibold mb-4">Order Summary</h2>
-      
-      <!-- Price Summary -->
-      <div class="flex justify-between mb-2">
-        <span>Subtotal:</span>
-        <span>{{ calculateSubtotal }}</span>
-      </div>
-      <div class="flex justify-between mb-2">
-        <span>Taxes:</span>
-        <span>{{ calculateTaxes }}</span>
-      </div>
-      <div class="flex justify-between mb-2">
-        <span>Estimated Total:</span>
-        <span>{{ calculateTotal }}</span>
-      </div>
-      
-      <p class="text-gray-500 text-sm font-medium py-4">After checkout, we'll email you a price quote. No payment is required until then. Allow up to 24 hours.</p>
-
-      <!-- Checkout Button -->
-      <button v-if="cartStore.isAuth" @click="checkout" class="w-full py-2 px-4 bg-green-800 text-white rounded hover:bg-green-900 focus:outline-none">
-        Checkout
-      </button>
-      <NuxtLink to="/account/auth/" class="w-full block text-center py-2 px-4 bg-green-800 text-white rounded hover:bg-green-900 focus:outline-none" v-else>Login to Checkout</NuxtLink>
+    <div class="col-span-1">
+      <AppCSummary />
     </div>
-    <!-- <p>
-      Is the user authenticated {{ cartStore.isAuth }}
-    </p>
-    <p>
-      There are {{ cartStore.getCartNo }} items in cart
-    </p>
-    <p>
-      The items include {{ cartStore.getCartItems }}
-    </p>
-    <p> 
-      Is item 1 in cart {{ cartStore.itemInCart(1) }}
-    </p>
-    <p> 
-      Is item 2 in cart {{ cartStore.itemInCart(2) }}
-    </p>
-    <button @click="cartStore.addItem({partId: '64ee6fb06725f623424c7b20', quantity: 1})">Add item1</button>
-    <button @click="cartStore.addItem({partId: '64ee6fb06525f623424c7b20', quantity: 1})">Add item2</button>
-    <button @click="cartStore.removeItem('64ee6fb06725f623424c7b20')">Remove item</button>
-    <button @click="cartStore.clearCart()">Clear cart</button> -->
   </div>
 </template>
 
