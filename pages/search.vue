@@ -3,27 +3,15 @@
     <section class="col-span-1">
       <SearchPCategories />
     </section>
-    <section class="col-span-3">  
-      <!-- {{ results }} -->
-      <div class="categories">
+    <section class="col-span-3"> 
+      <div v-for="p in results.categories" :key="p._id"  class="categories">
         <AppCatCard />
       </div>
       <div v-for="p in results.products" :key="p._id" class="products">
-
-        <AppProductHCard />
-        <AppProductLHCard />
+        <AppProductLHCard v-if="pending" />
+        <AppProductHCard :p="p" v-else />
       </div>
     </section>
-    
-    <!-- <h1>{{ pending }}</h1>
-    <h2>Search Results for  {{ query }} with an ID of {{ searchID }} - products</h2>
-    <p v-for="item in products" :key="item._id">
-      {{ item }}
-    </p>
-    <h2>Search Results for  {{ query }} with an ID of {{ searchID }} - categories</h2>
-    <p v-for="item in categories" :key="item._id">
-      {{ item }}
-    </p> -->
   </div>
 </template>
 
