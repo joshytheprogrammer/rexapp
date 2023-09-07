@@ -12,13 +12,16 @@
         
         <p class="pt-4 text-gray-600">Experience the ultimate convenience of completing your purchase in a matter of seconds.</p>
       </div>
-      <ul class="">
-        <AppProductQCCard />
-        <AppProductQCCard />
-        <AppProductQCCard />
+      <ul v-for="p in cartStore.getCartItems" :key="p.partId" >
+        <AppProductQCCard :p="p" />
       </ul>
+      <!-- <ul class="">
+        <AppProductQCCard />
+        <AppProductQCCard />
+        <AppProductQCCard />
+      </ul> -->
       <div class="flex justify-between text-white py-4">
-        <NuxtLink to="/cart/"  class="px-4 py-2 bg-green-800 hover:bg-green-900 border-green-800 border rounded-md">View Cart</NuxtLink>
+        <NuxtLink to="/cart/"  class="px-4 py-2 bg-green-800 hover:bg-green-900 border-green-800 border rounded-md">Visit Cart</NuxtLink>
         <button class="px-4 py-2 bg-green-800 hover:bg-green-900 border-green-800 border rounded-md" v-if="cartStore.isAuth">Checkout</button>
         <NuxtLink to="/account/auth/" class="px-4 py-2 bg-green-800 hover:bg-green-900 border-green-800 border rounded-md" v-else>Login to Checkout</NuxtLink>
       </div>
