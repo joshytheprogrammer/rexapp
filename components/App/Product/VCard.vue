@@ -31,6 +31,8 @@
 <script setup>
 const { formatPrice } = usePriceUtilities();
 const rating = 4;
+
+defineProps(['p']);
 </script>
 
 <style lang="scss" scoped>
