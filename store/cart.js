@@ -105,6 +105,40 @@ export const useCartStore = defineStore('cart', {
 
       await this.syncCart();
     },
+    updateQuantity(partId, newQuantity) {
+      const notification = useNotificationStore();
+
+      // Find the item in the cart by partId
+      const cartItem = this.cart.find(item => item.partId === partId);
+
+      if (!cartItem) {
+        notification.setNotification({
+          type: 'error',
+          message: 'Item not found in cart',
+        });
+        return;
+      }
+
+      // Validate and update the quantity
+      if (newQuantity <= 0) {
+        notification.setNotification({
+          type: 'error',
+          message: 'Quantity must be greater than zero',
+        });
+        return;
+      }
+
+      // Update the quantity of the cart item
+      cartItem.quantity = newQuantity;
+
+      // If user is authenticated, sync cart with server
+      if (this.isAuth) {
+        this.syncCart();
+      }
+
+      // Update the cart in cookies or local storage
+      useCookie('cart').value = this.cart;
+    },
   },
   getters: {
     getCartItems() {
@@ -121,6 +155,6 @@ export const useCartStore = defineStore('cart', {
     },
     isShowingQCart() {
       return this.showingQuickCart;
-    }
+    },
   }
 })

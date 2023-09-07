@@ -9,8 +9,8 @@
 
         <NuxtLink class="text-green-800 underline lg:hidden" to="#checkout">Checkout</NuxtLink>
       </div>
-      <ul class="py-4 min-h-screen">
-        <AppProductCCard />
+      <ul class="py-4" v-for="p in cartStore.getCartItems" :key="p.partId" >
+        <AppProductCCard :p="p" />
       </ul>
     </div>
     <div id="checkout" class="col-span-1 w-full h-fit my-4 lg:my-0 p-4 shadow-lg rounded-md bg-white">
