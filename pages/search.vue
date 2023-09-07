@@ -4,8 +4,8 @@
       <SearchPCategories />
     </section>
     <section class="col-span-3"> 
-      <div v-for="p in results.categories" :key="p._id"  class="categories">
-        <AppCatCard />
+      <div v-for="p in results.categories" :key="p._id"  class="mb-2">
+        <AppCategoryCard :p="p" />
       </div>
       <div v-for="p in results.products" :key="p._id" class="products">
         <AppProductLHCard v-if="pending" />

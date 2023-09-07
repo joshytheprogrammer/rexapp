@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="bg-transparent mx-auto w-72 md:w-full border rounded-md my-4">
+    <div class="bg-transparent w-72 md:w-full border rounded-md my-4">
       <div class="max-w-fit md:max-w-full md:mx-auto md:py-6 md:px-4 lg:px-8">
         <div class="md:grid grid-cols-4 gap-4 items-center">
           <div class="col-span-1">
