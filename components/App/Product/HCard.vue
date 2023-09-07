@@ -19,7 +19,7 @@
                   </span>
                 </template>
                 <span class="font-semibold text-gray-800 text-sm">
-                  (126) Review
+                  (10+) Review
                 </span>
               </p>
               <p class="flex flex-col justify-start pt-2">
@@ -36,7 +36,10 @@
               <p class="hidden md:block"> {{ p.description }} </p>
             </div>
             <div class="flex justify-between">
-              <button class="bg-green-800 hover:bg-green-900 transition-all duration-300 text-white text-xs font-medium rounded-md px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800">
+              <button v-if="cartStore.itemInCart(p._id)" @click="cartStore.toggleQuickCart()" class="bg-green-800 hover:bg-green-900 transition-all duration-300 text-white text-xs font-medium rounded-md px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800">
+                VIEW CART
+              </button>
+              <button v-else @click="cartStore.addItem({partId: p._id, quantity: 1})" class="bg-green-800 hover:bg-green-900 transition-all duration-300 text-white text-xs font-medium rounded-md px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800">
                 ADD TO CART
               </button>
             </div>
@@ -48,6 +51,9 @@
 </template>
 
 <script setup>
+import { useCartStore } from "@/store/cart";
+
+const cartStore = useCartStore();
 const { formatPrice } = usePriceUtilities();
 
 const props = defineProps(['p']);
