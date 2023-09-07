@@ -1,6 +1,7 @@
 <template>
   <div>
     <!-- For tracking order around the site -->
+    <AppComingSoon />
   </div>
 </template>
 
