@@ -97,6 +97,7 @@ export const useCartStore = defineStore('cart', {
 
       // Update the cart in cookies or local storage
       useCookie('cart').value = this.cart;
+      this.calcSummary()
     },
     clearSummary() {
       this.summary = {
@@ -142,8 +143,8 @@ export const useCartStore = defineStore('cart', {
       if(!data.value){return;}
 
       this.clearCart();
-      this.syncCart();
-      this.calcSummary();
+      await this.syncCart();
+      await this.calcSummary();
 
       notification.setNotification({
         type: 'success',
@@ -194,7 +195,7 @@ export const useCartStore = defineStore('cart', {
         return
       }
 
-      this.calcSummary()
+      await this.calcSummary()
     },
     async initializeCartFromServer() {
       const { data, error } = await useFetch('/cart/', {

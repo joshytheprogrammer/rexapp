@@ -30,8 +30,8 @@
 import { useCartStore } from "@/store/cart";
 const cartStore = useCartStore();
 
-
 const { formatPrice } = usePriceUtilities();
+cartStore.calcSummary()
 </script>
 
 <style lang="scss" scoped>
