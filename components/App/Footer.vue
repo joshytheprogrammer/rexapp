@@ -30,10 +30,10 @@
               <NuxtLink to="/account/my?page=wishlist">My Wishlist</NuxtLink>
             </li>
             <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
-              <NuxtLink to="/account/auth">Login</NuxtLink>
+              <NuxtLink to="/account/auth#login">Login</NuxtLink>
             </li>
             <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
-              <NuxtLink to="/account/auth">Register</NuxtLink>
+              <NuxtLink to="/account/auth#register">Register</NuxtLink>
             </li>
           </ul>
         </div>

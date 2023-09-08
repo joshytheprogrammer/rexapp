@@ -41,6 +41,7 @@ export const useCartStore = defineStore('cart', {
 
       // If user is authenticated, sync cart with server
       if(this.isAuth){this.syncCart();}
+      this.calcSummary();
     },
     removeItem(id) {
       const index = this.cart.findIndex(item => item.partId === id);
@@ -50,10 +51,11 @@ export const useCartStore = defineStore('cart', {
       }
 
       this.cart.splice(index, 1);
-      setCookie('cart').value = [...this.cart];
+      useCookie('cart').value = [...this.cart];
 
       // If user is authenticated, sync cart with server
       if(this.isAuth){this.syncCart();}
+      this.calcSummary();
     },
     clearCart() {
       this.cart = [];
@@ -96,6 +98,60 @@ export const useCartStore = defineStore('cart', {
       // Update the cart in cookies or local storage
       useCookie('cart').value = this.cart;
     },
+    clearSummary() {
+      this.summary = {
+        subtotal: {
+          min: 0,
+          max: 0
+        },
+        taxes: {
+          min: 0,
+          max: 0
+        },
+        total: {
+          min: 0,
+          max: 0
+        }
+      }
+    },
+    async checkout() {
+      const notification = useNotificationStore();
+
+      if(this.getCartNo <= 0){return;}
+
+      const { data, error } = await useFetch('/cart/checkout', {
+        baseURL: useRuntimeConfig().public.baseURL,
+        method: "POST",
+        headers: {
+          authorization: useAuthStore().getAuth.token,
+        },
+        body: JSON.stringify({ cart: this.cart })
+      });
+
+      if (error.value) {
+        const errorMessage = error.value.data?.message || "An error occurred wehn syncing your cart.";
+      
+        notification.setNotification({
+          type: 'error',
+          message: errorMessage,
+        });
+      
+        return
+      }
+
+      if(!data.value){return;}
+
+      this.clearCart();
+      this.syncCart();
+      this.calcSummary();
+
+      notification.setNotification({
+        type: 'success',
+        message: data.value.message,
+      });
+
+      navigateTo('/account/my?page=orders')
+    },
     async calcSummary() {
       // Pass the cart array and return subtotal
       const { data } = await useFetch('/guest/calculateSubtotal', {
@@ -103,6 +159,8 @@ export const useCartStore = defineStore('cart', {
         method: "POST",
         body: JSON.stringify({ cart: this.cart })
       });
+
+      if(!data.value){this.clearSummary(); return;}
 
       this.summary.subtotal.min = data.value.minSubtotal
       this.summary.subtotal.max = data.value.maxSubtotal
@@ -112,13 +170,6 @@ export const useCartStore = defineStore('cart', {
 
       this.summary.total.min = this.summary.subtotal.min + this.summary.taxes.min
       this.summary.total.max = this.summary.subtotal.max + this.summary.taxes.max
-    },
-    clearSummary() {
-      this.summary = {
-        subtotal: 0,
-        taxes: 0,
-        total: 0
-      }
     },
     async syncCart() {
       const notification = useNotificationStore();
@@ -193,6 +244,5 @@ export const useCartStore = defineStore('cart', {
     getSummary() {
       return this.summary
     }
-
   }
 })
