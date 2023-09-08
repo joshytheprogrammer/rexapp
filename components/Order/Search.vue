@@ -12,6 +12,7 @@ import { useNotificationStore } from '@/store/notification'
 
 const route = useRoute();
 const notification = useNotificationStore();
+const {isValidObjectId} = useSearchUtilities();
 
 
 let query = ref(route.query.order);
@@ -20,13 +21,8 @@ watch(() => route.query, () => {
   query.value = route.query.order;
 });
 
-function isValidObjectId(id) {
-  const objectIdPattern = /^[0-9a-fA-F]{24}$/; // MongoDB ObjectId pattern
-  return objectIdPattern.test(id);
-}
-
 function performRedirect() {
-  if(!isValidObjectId(query.value)){notification.setNotification({type: 'error', message: 'Invalid Order ID',});}
+  if(!isValidObjectId(query.value)){notification.setNotification({type: 'error', message: 'Invalid Order ID',}); return;}
   
   navigateTo({
     path: '/orders',
