@@ -8,5 +8,7 @@
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
     "**/node_modules": true
-  }
+  },
+  "editor.tabSize": 2,
+  "files.autoSave": "onFocusChange"
 }

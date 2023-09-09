@@ -61,19 +61,19 @@
           <h3 class="text-xl text-gray-200 font-semibold leading-9 tracking-tight">FIND BY CATEGORY</h3>
           <ul class="text-sm text-gray-200 md:text-base font-normal md:font-medium">
             <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
-              <NuxtLink to="/category/">Engine Parts</NuxtLink>
+              <NuxtLink to="/categories/e">Engine Parts</NuxtLink>
             </li>
             <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
-              <NuxtLink to="/category">Brake System</NuxtLink>
+              <NuxtLink to="/categories/e">Brake System</NuxtLink>
             </li>
             <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
-              <NuxtLink to="/category/">Electrical System</NuxtLink>
+              <NuxtLink to="/categories/e">Electrical System</NuxtLink>
             </li>
             <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
-              <NuxtLink to="/category/">Exhaust System</NuxtLink>
+              <NuxtLink to="/categories/e">Exhaust System</NuxtLink>
             </li>
             <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
-              <NuxtLink to="/category/">Fuel System</NuxtLink>
+              <NuxtLink to="/categories/e">Fuel System</NuxtLink>
             </li>
           </ul>
         </div>

@@ -120,17 +120,12 @@ export const useAuthStore = defineStore('auth', {
     async logout() {
       const refreshToken = useCookie('refreshToken').value;
 
-      const { data, error } = await useFetch('/auth/logout', {
+      const { error } = await useFetch('/auth/logout', {
         baseURL: useRuntimeConfig().public.baseURL,
         method: 'POST',
         body: { refreshToken },
         credentials: 'include'
       });
-
-      if (error.value) {
-        // Handle error here
-        return;
-      }
 
       // Clear cookies and reset state
       useCookie('accessToken').value = null;
@@ -139,6 +134,11 @@ export const useAuthStore = defineStore('auth', {
       
       this.user = null;
       this.auth.token = null;
+
+      if (error.value) {
+        // Handle error here
+        return;
+      }
 
       navigateTo('/account/auth');
     }

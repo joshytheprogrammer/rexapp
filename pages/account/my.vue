@@ -32,7 +32,8 @@ const { data: user, error } = await useFetch('/user/profile', {
 
 if (error.value) {
   const errorMessage = error.value.data?.message || "Something went wrong.";
-
+  authStore.logout();
+  
   notification.setNotification({
     type: 'error',
     message: errorMessage,
