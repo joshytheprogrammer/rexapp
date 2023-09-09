@@ -3,7 +3,7 @@
     <div class="px-4 sm:px-8 md:px-8 lg:px-18 bg-gray-400 py-4">
       <table class="border-collapse table-auto w-full text-sm">
         <caption class="text-black pt-4 text-xs caption-bottom font-medium">
-          Component Version 1.0 - Displaying Your <span class="text-green-800 font-semibold">{{ orders.length }}</span> Recent Orders.
+          Orders Version 1.0 - Displaying Your <span class="text-green-800 font-semibold">{{ orders.length }}</span> Recent Orders.
         </caption>
         <thead class="bg-green-800">
           <tr class="text-white text-left font-medium">
