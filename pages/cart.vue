@@ -9,9 +9,14 @@
 
         <NuxtLink class="text-green-800 underline lg:hidden" to="#checkout">Checkout</NuxtLink>
       </div>
-      <ul class="py-4" v-for="p in cartStore.getCartItems" :key="p.partId" >
-        <AppProductCCard :p="p" />
-      </ul>
+      <section>
+        <ul class="py-4" v-if="cartStore.getCartNo > 0" v-for="p in cartStore.getCartItems" :key="p.partId" >
+          <AppProductCCard :p="p" />
+        </ul>
+        <div v-else>
+          <p>No items in cart</p>
+        </div>
+      </section>
     </div>
     <div class="col-span-1" id="checkout">
       <AppCSummary />

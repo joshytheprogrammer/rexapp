@@ -154,6 +154,7 @@ export const useCartStore = defineStore('cart', {
       navigateTo('/account/my?page=orders')
     },
     async calcSummary() {
+      if(this.getCartNo === 0){this.clearSummary(); return;}
       // Pass the cart array and return subtotal
       const { data } = await useFetch('/guest/calculateSubtotal', {
         baseURL: useRuntimeConfig().public.baseURL,
