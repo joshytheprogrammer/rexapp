@@ -194,8 +194,6 @@ export const useCartStore = defineStore('cart', {
       
         return
       }
-
-      await this.calcSummary()
     },
     async initializeCartFromServer() {
       const { data, error } = await useFetch('/cart/', {
