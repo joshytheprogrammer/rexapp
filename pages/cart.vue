@@ -13,7 +13,7 @@
         <AppProductCCard :p="p" />
       </ul>
     </div>
-    <div class="col-span-1">
+    <div class="col-span-1" id="checkout">
       <AppCSummary />
     </div>
   </div>

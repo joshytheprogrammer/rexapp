@@ -1,5 +1,5 @@
 <template>
-  <div id="checkout" class="w-full h-fit my-4 lg:my-0 p-4 shadow-lg rounded-md bg-white">
+  <div class="w-full h-fit my-4 lg:my-0 p-4 shadow-lg rounded-md bg-white">
     <h2 class="text-xl font-semibold mb-4">Order Summary</h2>
     
     <!-- Price Summary -->
