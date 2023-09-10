@@ -37,7 +37,7 @@ const updateQuantity = () => {
   cartStore.updateQuantity(props.p.partId, props.p.quantity);
 };
 
-const { data } = await useFetch(() => `/products/${props.p.partId}`, {
+const { data } = await useFetch(() => `/products/byId/${props.p.partId}`, {
   baseURL: useRuntimeConfig().public.baseURL,
 });
 </script>
