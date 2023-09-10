@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center justify-center h-screen bg-gray-800">
+  <div class="flex flex-col items-center justify-center text-center h-screen bg-gray-800">
     <h1 class="text-4xl font-semibold text-white mb-4">Coming Soon</h1>
     <p class="text-gray-400 text-lg mb-8">We're working hard to bring you something amazing!</p>
     <div class="flex space-x-4">
