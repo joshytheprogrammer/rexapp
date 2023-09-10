@@ -1,8 +1,8 @@
 <template>
   <Transition name="fade">
-    <div class="px-4 sm:px-8 md:px-8 lg:px-18 bg-gray-400 py-4">
+    <div class="px-4 sm:px-8 md:px-8 overflow-x-auto lg:px-18 bg-gray-400 py-4">
       <table class="border-collapse table-auto w-full text-sm">
-        <caption class="text-black pt-4 text-xs caption-bottom font-medium">
+        <caption class="text-black pt-4 text-xs caption-bottom font-medium text-center">
           Orders Version 1.0 - Displaying Your <span class="text-green-800 font-semibold">{{ orders.length }}</span> Recent Orders.
         </caption>
         <thead class="bg-green-800">
@@ -15,7 +15,7 @@
         </thead>
         <tbody class="bg-white text-dark ">
           <tr v-for="item in orders" :key="item._id">
-            <td class="border-b border-slate-100 p-4"> {{ item._id.substring(item._id.length - 8) }}</td>
+            <td class="border-b border-slate-100 p-4">{{ item._id.substring(item._id.length - 8) }}</td>
             <td class="border-b border-slate-100 p-4">{{ new Date(item.orderDate).toLocaleString() }}</td>
             <td class="border-b border-slate-200 p-4">{{ item.status }}</td>
             <td class="border-b border-slate-200 p-4">
