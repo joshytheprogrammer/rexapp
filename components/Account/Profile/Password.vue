@@ -67,8 +67,8 @@ function toggleEditPassword() {
 async function submitPassword() {
   submittingPasswords.value = true;
 
-  const { data, error } = await useFetch('user/change-password', {
-    baseURL: 'http://localhost:5000/api/',
+  const { data, error } = await useFetch('/user/change-password', {
+    baseURL: useRuntimeConfig().public.baseURL,
     method: "POST",
     headers: {
       authorization: props.token,

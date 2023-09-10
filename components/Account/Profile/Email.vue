@@ -49,8 +49,8 @@ function toggleEditEmail() {
 async function submitEmail() {
   submittingEmail.value = true;
 
-  const { data, error } = await useFetch('user/change-email', {
-    baseURL: 'http://localhost:5000/api/',
+  const { data, error } = await useFetch('/user/change-email', {
+    baseURL: useRuntimeConfig().public.baseURL,
     method: "POST",
     headers: {
       authorization: props.token,

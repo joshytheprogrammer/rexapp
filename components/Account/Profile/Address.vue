@@ -90,8 +90,8 @@ function toggleEditAddress() {
 async function submitAddress() {
   submittingAddress.value = true;
 
-  const { data, error } = await useFetch('user/change-address', {
-    baseURL: 'http://localhost:5000/api/',
+  const { data, error } = await useFetch('/user/change-address', {
+    baseURL: useRuntimeConfig().public.baseURL,
     method: "POST",
     headers: {
       authorization: props.token,

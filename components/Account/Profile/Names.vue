@@ -87,8 +87,8 @@ function toggleEditNames() {
 async function submitNames() {
   submittingNames.value = true;
 
-  const { data, error } = await useFetch('user/change-name', {
-    baseURL: 'http://localhost:5000/api/',
+  const { data, error } = await useFetch('/user/change-name', {
+    baseURL: useRuntimeConfig().public.baseURL,
     method: "POST",
     headers: {
       authorization: props.token,
