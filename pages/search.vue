@@ -3,14 +3,21 @@
     <section class="col-span-1 w-full">
       <SearchPCategories />
     </section>
-    <section class="col-span-3"> 
-      <div v-for="p in results.categories" :key="p._id"  class="mb-2">
-        <AppCategoryCard :p="p" />
-      </div>
-      <div v-for="p in results.products" :key="p._id" class="mb-2">
-        <AppProductLHCard v-if="pending" />
-        <AppProductHCard :p="p" v-else />
-      </div>
+    <section class="col-span-3">
+      <section v-if="results.categories.length === 0 & results.products.length === 0">
+        <p class="text-center lg:text-left text-gray-800 mt-4">
+          We couldn't find anything. Please try broadening your search.
+        </p>
+      </section>
+      <section v-else>
+        <div v-for="p in results.categories" :key="p._id"  class="mb-2">
+          <AppCategoryCard :p="p" />
+        </div>
+        <div v-for="p in results.products" :key="p._id" class="mb-2">
+          <AppProductLHCard v-if="pending" />
+          <AppProductHCard :p="p" v-else />
+        </div>
+      </section>
     </section>
   </div>
 </template>
