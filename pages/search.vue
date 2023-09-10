@@ -11,11 +11,11 @@
       </section>
       <section v-else>
         <div v-for="p in results.categories" :key="p._id"  class="mb-2">
-          <AppCategoryCard :p="p" />
+          <AppCategoryCard :p="p" :sID="results.searchId" />
         </div>
         <div v-for="p in results.products" :key="p._id" class="mb-2">
           <AppProductLHCard v-if="pending" />
-          <AppProductHCard :p="p" v-else />
+          <AppProductHCard :p="p" :sID="results.searchId" v-else />
         </div>
       </section>
     </section>

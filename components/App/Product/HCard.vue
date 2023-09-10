@@ -8,7 +8,7 @@
         <div class="col-span-3">
           <div class="p-4 text-slate-700 text-left">
             <p class="">
-              <NuxtLink :to="'/shop/'+p.slug" class="text-black font-semibold text-base md:text-lg hover:text-green-800"> {{ p.name }} </NuxtLink>
+              <NuxtLink :to="'/shop/'+p.slug + (sID !== null && sID !== undefined ? '?sID=' + sID : '')" class="text-black font-semibold text-base md:text-lg hover:text-green-800"> {{ p.name }} </NuxtLink>
               <p class="flex items-center justify-start">
                 <template v-for="(index) in 5">
                   <span class="text-green-800 pr-2" v-if="index <= p.rating">
@@ -56,7 +56,7 @@ import { useCartStore } from "@/store/cart";
 const cartStore = useCartStore();
 const { formatPrice } = usePriceUtilities();
 
-const props = defineProps(['p']);
+const props = defineProps(['p', 'sID']);
 </script>
 
 <style lang="scss" scoped>
