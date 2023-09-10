@@ -5,7 +5,10 @@
         <NuxtLink class="flex items-center space-around no-underline" to="/">
           <!-- <img src="" alt=""> -->
           <Icon class="text-green-800" size="4em" name="ph:car-fill" />
-          <h1 class="font-bold text-xl md:text-2xl lg:text-4xl italic px-2">Rex<span class="text-green-800">app</span></h1>
+          <h1 class="font-bold text-xl md:text-2xl lg:text-4xl italic px-2">
+            Rex<span class="text-green-800">app</span>
+            <sup class="text-xs bg-green-800 text-white p-1 rounded-md">Beta</sup>
+          </h1>
         </NuxtLink>
       </div>
       <div class="search">
