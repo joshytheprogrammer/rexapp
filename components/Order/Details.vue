@@ -17,7 +17,8 @@
         </p>
       </div>
       <div class="w-full block mb-2 rounded-md shadow-lg border bg-white px-2 py-4 space-y-2">
-        
+        <h2 class="text-xl font-semibold mb-4">Order Details</h2>
+        <AppProductODCard v-for="p in order.items" :key="p.partId" :p="p"  />
       </div>
     </div>
     <div class="col-span-3">
