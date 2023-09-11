@@ -1,30 +1,32 @@
 <template>
-  <div class="block lg:grid grid-cols-5 gap-4 my-4">
+  <div class="block my-4">
     <!-- {{ order }} -->
-    <div class="col-span-2">
-      <div class="w-fit block mb-4 mx-auto rounded-md shadow-lg border bg-white px-2 py-4 space-y-2 text-lg font-normal">
+    <div class="lg:grid grid-cols-8 gap-4">
+      <div class="w-full mb-4 rounded-md shadow-lg border bg-white px-4 lg:px-10 py-4 space-y-2 col-span-6">
+        <h2 class="text-xl font-semibold mb-4">Order Details</h2>
+        <section class="lg:overflow-y-auto lg:max-h-96">
+          <AppProductODCard v-for="p in order.items" :key="p.partId" :p="p"  />
+        </section>
+      </div>
+      <div class="w-full block mb-4 rounded-md shadow-lg border bg-white px-4 lg:px-6 py-4 space-y-2 text-sm font-normal col-span-2">
         <p class="flex justify-between">
           <span>Status: </span>
-          <span class="font-semibold text-green-800">{{ order.status }}</span>
+          <span class="font-medium text-green-800">{{ order.status }}</span>
         </p>
         <p class="flex justify-between">
           <span>Order ID: </span>
-          <span class="font-semibold text-green-800 pl-4">{{ order._id }}</span> 
+          <span class="font-medium text-xs text-green-800">{{ order._id }}</span> 
         </p>
         <p class="flex justify-between">
           <span>Ordered on: </span>
-          <span class="font-semibold text-green-800 pl-4">{{ new Date(order.orderDate).toDateString()}}</span>
+          <span class="font-medium text-green-800">{{ new Date(order.orderDate).toDateString()}}</span>
         </p>
       </div>
-      <div class="w-full block mb-2 rounded-md shadow-lg border bg-white px-2 py-4 space-y-2">
-        <h2 class="text-xl font-semibold mb-4">Order Details</h2>
-        <AppProductODCard v-for="p in order.items" :key="p.partId" :p="p"  />
-      </div>
     </div>
-    <div class="col-span-3">
-      <div class="w-fit block mb-2 rounded-md shadow-lg border bg-white px-2 py-4 space-y-2 text-base font-medium">
+    <div class="">
+      <div class="w-fit block mb-4 rounded-md shadow-lg border bg-white px-4 py-8 lg:p-10 space-y-2 text-sm font-medium">
         <h2 class="text-xl font-semibold mb-4">Order Notes</h2>
-        <p class="space-y-2">
+        <p class="space-y-4 text-gray-600">
           <p>
             Dear Customer,
           </p>
@@ -45,7 +47,7 @@
             Thank you for choosing RexApp for your shopping needs.
           </p>
 
-          <p>
+          <p >
             Best Regards,<br>
             RexApp Team
           </p>
