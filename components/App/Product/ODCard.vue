@@ -10,7 +10,7 @@
       <!-- <p>[<AppCategoryList v-for="c in data.product.categories" :id="c" />]</p> -->
       <span class="block py-2 text-gray-700 font-semibold text-base"> {{ formatPrice(data.product.price.min) }} - {{ formatPrice(data.product.price.max) }}</span>
       <div class="flex">
-        <span class="bg-gray-200 py-1 px-4 rounded-md border ">{{ p.quantity }}</span>
+        <span class="bg-gray-200 p-2 rounded-full border ">{{ p.quantity }}</span>
       </div>
     </div>
   </li>

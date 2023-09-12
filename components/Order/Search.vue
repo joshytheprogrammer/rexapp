@@ -1,7 +1,8 @@
 <template>
-  <section class="bg-white py-4 px-4 lg:px-8 rounded-md shadow-lg border ">
-    <form class="w-full flex justify-end" @submit.prevent="performRedirect">
-      <input class="w-11/12 lg:w-1/2 px-1 lg:px-2 py-3 outline-none border focus:border-green-800 rounded-l placeholder:text-slate-400 placeholder:font-light" type="text" placeholder="Enter your order ID" v-model="query" required>
+  <section class="flex justify-between gap-8 bg-white w-full items-center py-4 px-4 lg:px-8 rounded-md shadow-lg border ">
+    <h2 class="w-fit text-xl lg:text-2xl font-medium">Track your Order</h2>
+    <form class="w-11/12 lg:w-1/2 inline-flex justify-end" @submit.prevent="performRedirect">
+      <input class="w-full px-1 lg:px-2 py-3 outline-none border focus:border-green-800 rounded-l placeholder:text-slate-400 placeholder:font-light" type="text" placeholder="Enter your order ID" v-model="query" required>
       <button class="cursor-pointer h-full transition-all duration-300 bg-green-800 hover:bg-green-900 text-white px-2 lg:px-4 py-3 rounded-r ">
         <Icon name="tabler:search" size="1.55em" type="submit" />
       </button>
