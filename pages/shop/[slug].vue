@@ -14,8 +14,9 @@ const authStore = useAuthStore();
 const notification = useNotificationStore();
 
 const productSlug = computed(() => route.params.slug);
+const searchId = computed(() => route.query.sID);
 
-const { data: product, error } = await useFetch(() => `/products/bySlug/${productSlug.value}`, {
+const { data: product, error } = await useFetch(() => `/products/bySlug/${productSlug.value}?sID=${searchId.value}`, {
   baseURL: useRuntimeConfig().public.baseURL,
   transform: (product) => {
     return product.product
