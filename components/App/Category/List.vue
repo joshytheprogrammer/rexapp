@@ -1,6 +1,6 @@
 <template>
   <span class="py-1 hover:text-green-800 text-gray-500 text-sm font-semibold transition-all duration-300">
-    <NuxtLink :to="'categories/'+data.category.slug">
+    <NuxtLink :to="'/categories/'+data.category.slug">
       {{ data.category.name }}, 
     </NuxtLink>
   </span>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="w-full px-4 sm:px-8 md:px-8 lg:px-18 py-4 mx-auto bg-gray-100">
     <AppError v-if="error" :error="error" />
     <ShopProduct v-else :product="product" />
   </div>
