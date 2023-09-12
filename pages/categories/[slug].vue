@@ -2,7 +2,7 @@
   <div class="w-full">
     <CategoryJumbotron :name="category.name" :desc="category.description" />
     <div class="px-4 sm:px-8 md:px-8 lg:px-18 py-4 ">
-
+      <CategoryProducts :id="category._id" />
     </div>
   </div>
 </template>
@@ -18,7 +18,11 @@ const notification = useNotificationStore();
 const productSlug = computed(() => route.params.slug);
 const searchId = computed(() => route.query.sID);
 
-const { data: category, error } = await useFetch(() => `/categories/bySlug/${productSlug.value}?sID=${searchId.value}`, {
+const queryParameters = searchId.value !== null && searchId.value !== undefined
+  ? `?sID=${searchId.value}`
+  : '';
+
+const { data: category, error } = await useFetch(() => `/categories/bySlug/${productSlug.value}${queryParameters}`, {
   baseURL: useRuntimeConfig().public.baseURL,
   transform: (category) => {
     return category.category
