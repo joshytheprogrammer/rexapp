@@ -34,8 +34,6 @@ const props = defineProps(['orders', 'token']);
 props.orders.sort((a, b) => {
   if (a.orderDate > b.orderDate) return -1; // Compare dates in descending order
   if (a.orderDate < b.orderDate) return 1;
-  if (a.status === 'pending' && b.status !== 'pending') return -1;
-  if (a.status !== 'pending' && b.status === 'pending') return 1;
   return 0;
 });
 </script>
