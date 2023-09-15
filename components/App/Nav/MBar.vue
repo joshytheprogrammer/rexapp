@@ -44,12 +44,12 @@
         <li class="w-full border-b py-4">
           <NuxtLink class="link px-4 py-2 border border-transparent" to="/shop">Shop</NuxtLink>
         </li>
-        <li class="w-full border-b py-4">
+        <!-- <li class="w-full border-b py-4">
           <NuxtLink class="link px-4 py-2 border border-transparent" to="/blog">Blog</NuxtLink>
         </li>
         <li class="w-full border-b py-4">
           <NuxtLink class="link px-4 py-2 border border-transparent" to="/about">About</NuxtLink>
-        </li>
+        </li> -->
         <li class="w-full border-b py-4">
           <NuxtLink class="link px-4 py-2 border border-transparent" to="/contact">Contact</NuxtLink>
         </li>

@@ -47,7 +47,7 @@
         <li class="cursor-pointer hover:text-green-800 transition-all duration-300 font-medium px-2">
           <NuxtLink class="link px-4 py-2 border border-transparent" to="/shop">Shop</NuxtLink>
         </li>
-        <span class="px-2">
+        <!-- <span class="px-2">
           <Icon class="text-gray-500" name="tabler:minus-vertical" size="1em" />
         </span>
         <li class="cursor-pointer hover:text-green-800 transition-all duration-300 font-medium px-2">
@@ -58,7 +58,7 @@
         </span>
         <li class="cursor-pointer hover:text-green-800 transition-all duration-300 font-medium px-2">
           <NuxtLink class="link px-4 py-2 border border-transparent" to="/about">About</NuxtLink>
-        </li>
+        </li> -->
         <span class="px-2">
           <Icon class="text-gray-500" name="tabler:minus-vertical" size="1em" />
         </span>
