@@ -59,21 +59,9 @@
         </div>
         <div class="md:basis-1/3">
           <h3 class="text-xl text-gray-200 font-semibold leading-9 tracking-tight">FIND BY CATEGORY</h3>
-          <ul class="text-sm text-gray-200 md:text-base font-normal md:font-medium">
+          <ul class="text-sm text-gray-200 md:text-base font-normal md:font-medium" v-for="item in categories" :key="item._id">
             <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
-              <NuxtLink to="/categories/e">Engine Parts</NuxtLink>
-            </li>
-            <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
-              <NuxtLink to="/categories/e">Brake System</NuxtLink>
-            </li>
-            <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
-              <NuxtLink to="/categories/e">Electrical System</NuxtLink>
-            </li>
-            <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
-              <NuxtLink to="/categories/e">Exhaust System</NuxtLink>
-            </li>
-            <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
-              <NuxtLink to="/categories/e">Fuel System</NuxtLink>
+              <NuxtLink :to="'/categories/'+item.slug"> {{ item.name }}</NuxtLink>
             </li>
           </ul>
         </div>
@@ -96,5 +84,9 @@
 </template>
 
 <script setup>
+const { data, error } = await useFetch('/categories/all?fields=_id,name,slug&sort=name&limit=5', {
+  baseURL: useRuntimeConfig().public.baseURL,
+});
 
+const categories = data.value?.categories;
 </script>

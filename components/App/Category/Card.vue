@@ -8,7 +8,3 @@
 <script setup>
 const props = defineProps(['p', 'sID']);
 </script>
-
-<style lang="scss" scoped>
-
-</style>

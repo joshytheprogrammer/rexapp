@@ -4,7 +4,7 @@
     <span class="block py-2"></span>
     <NuxtLink class="block my-1" v-for="item in categories" :key="item._id" :to="'/categories/'+item.slug">
       <div class="flex justify-start cursor-pointer items-center p-2 border hover:border-green-800 rounded-md">
-        <img src="https://risingtheme.com/html/demo-partsix/partsix/assets/img/product/main-product/product2.webp" class="w-12 object-cover md:h-auto">
+        <img :src="item.imageURL" class="w-12 object-cover md:h-auto">
         <span> {{ item.name }}</span>
       </div>
     </NuxtLink>
@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-const { data, error } = await useFetch('/categories/all?fields=_id,name,slug&sort=name&limit=5', {
+const { data, error } = await useFetch('/categories/all?fields=_id,name,slug,imageURL&sort=name&limit=5', {
   baseURL: useRuntimeConfig().public.baseURL,
 });
 
