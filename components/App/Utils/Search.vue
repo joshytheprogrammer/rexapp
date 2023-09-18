@@ -22,7 +22,7 @@
     query.value = route.query.q;
   });
   
-  const { data, error } = await useFetch('/categories/all?fields=_id,name&sort=name&limit=20', {
+  const { data } = await useFetch('/categories/all?fields=_id,name&sort=name&limit=20', {
     baseURL: useRuntimeConfig().public.baseURL,
   });
 

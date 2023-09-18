@@ -15,4 +15,5 @@
 const { data, error } = await useFetch('/categories/all?fields=_id,name,slug,imageURL&sort=name&limit=5', {
   baseURL: useRuntimeConfig().public.baseURL,
 });
+
 </script>

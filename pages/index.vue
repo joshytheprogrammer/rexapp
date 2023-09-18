@@ -1,13 +1,10 @@
 <template>
-  <div class="home">
-    <AppComingSoon />
+  <div class="home ">
+    <HomeJumbotron />
+    <HomeSearch />
   </div>
 </template>
 
 <script setup>
 
 </script>
-
-<style lang="scss" scoped>
-
-</style>

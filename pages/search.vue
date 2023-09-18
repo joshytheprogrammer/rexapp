@@ -4,9 +4,9 @@
       <SearchPCategories />
     </section>
     <section class="col-span-3">
-      <section v-if="results.categories.length === 0 & results.products.length === 0">
+      <section v-if="results.categories.length === 0 & results.products.length === 0 || results.length === 0">
         <p class="text-center lg:text-left text-gray-800 mt-4">
-          We couldn't find anything. Please try broadening your search.
+          We couldn't find anything. Please try using the <NuxtLink class="text-green-800 underline" to="/#rexapp_s_c">search constructor</NuxtLink> 
         </p>
       </section>
       <section v-else>
@@ -23,7 +23,10 @@
 </template>
 
 <script setup>
+import { useNotificationStore } from '@/store/notification';
+
   const route = useRoute();
+  const notification = useNotificationStore();
 
   const query = computed(() => route.query.q);
   const category_id = computed(() => route.query.c || 'all');
@@ -33,8 +36,11 @@
     watch: [query, category_id],
     immediate: true,
   });
+
+  if(error.value || !results.value) {
+    notification.setNotification({
+      'type': 'error',
+      'message': error.value.message
+    });
+  }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

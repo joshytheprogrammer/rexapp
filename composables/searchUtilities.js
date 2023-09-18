@@ -1,8 +1,19 @@
 export const useSearchUtilities = () => {
   function buildQuery(term, c_id) {
-    if(!c_id) {c_id = "all"}
-    if(c_id.length < 1) {c_id = "all"}
+    const regex = /[^a-zA-Z0-9-_?! ]/g;
+  
+    // Remove special characters from the term string
+    term = term.replace(regex, '');
 
+    if(term.length < 5) {return}
+  
+    if (!c_id) {
+      c_id = "all";
+    }
+    if (c_id.length < 1) {
+      c_id = "all";
+    }
+  
     navigateTo({
       path: '/search',
       query: {
@@ -17,8 +28,24 @@ export const useSearchUtilities = () => {
     return objectIdPattern.test(id);
   }
 
+  function constructSearch(terms) {
+    const values = Object.values(terms);
+    
+    const searchString = values.join(' ').toLowerCase();
+
+    if(searchString.length < 5) {return}
+
+    navigateTo({
+      path: '/search',
+      query: {
+        q: searchString,
+      }
+    });
+  }
+
   return {
     buildQuery,
-    isValidObjectId
+    isValidObjectId,
+    constructSearch
   }
 }
