@@ -15,6 +15,6 @@
 
 <style lang="postcss" scoped>
 .hero {
-  @apply bg-[url('https://res.cloudinary.com/dsgvwxygr/image/upload/v1695040788/rexapp/home3-slider1-layer_mbkyb3.webp')];
+  @apply bg-gradient-to-r from-lime-500 to-green-500 md:bg-[url('https://res.cloudinary.com/dsgvwxygr/image/upload/v1695040788/rexapp/home3-slider1-layer_mbkyb3.webp')];
 }
 </style>

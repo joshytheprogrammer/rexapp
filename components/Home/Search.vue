@@ -1,9 +1,9 @@
 <template>
-  <div class="py-10 text-center" id="rexapp_s_c">
+  <div class="py-16 text-center" id="rexapp_s_c">
     <h2 class="text-3xl font-medium">Rexapp Search Constructor</h2>
     <p class="py-4 px-2">The Rexapp Search Constructor can help you find parts using information available to you.</p>
     <div class="bg-green-200 px-6 py-4 mx-6 lg:mx-8 rounded-md">
-      <form class="flex justify-around flex-wrap gap-2 transition-all duration-300" @submit.prevent="submit">
+      <form class="flex justify-around flex-wrap gap-2 transition-all duration-300 py-4" @submit.prevent="submit">
         <select class="bg-white focus:shadow-md rounded-md outline-none cursor-pointer px-2 py-2" v-model="search.manufacturer">
           <option value="" selected>Select Manufacturer</option>
           <option v-for="m in manufacturers" :key="m" :value="m">{{ m }}</option>

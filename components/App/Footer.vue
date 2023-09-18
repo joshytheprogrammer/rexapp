@@ -3,7 +3,7 @@
     <div class="block mx-auto justify-center lg:mx-0 lg:mr-4 lg:flex lg:justify-between items-center py-8 text-white border-b border-gray-800">
       <div class="block text-center lg:text-left">
         <h2 class=" text-2xl lg:text-4xl font-semibold lg:font-medium tracking-tight text-white">Subscribe to our <span class="text-green-600">Newsletter.</span></h2>
-        <p class="mt-4 text-md leading-8 text-gray-300">Don’t wait make a smart & logical quote here. Its pretty easy. </p>
+        <p class="mt-4 text-md leading-8 text-gray-300">Don`t wait make a smart & logical quote here. Its pretty easy. </p>
       </div>
       <div class="flex lg:w-1/2 mt-4 lg:mt-0">
           <label for="email-address" class="sr-only">Email address</label>
