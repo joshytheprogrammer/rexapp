@@ -1,5 +1,5 @@
 <template>
-  <section class="register w-full py-4 py-8 lg:bg-white rounded-xl lg:shadow-lg" id="register">
+  <section class="register w-full py-8 lg:bg-white rounded-xl lg:shadow-lg" id="register">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
       <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Create an account </h2>
     </div>
