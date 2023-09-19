@@ -37,6 +37,18 @@ if (error.value) {
     message: errorMessage,
   });
 }
+
+useSeoMeta({
+  title: () => `Shop for ${category.value?.name} - Rexapp`,
+  ogTitle: () => `Shop for ${category.value?.name} - Rexapp`,
+  ogImage: 'https://res.cloudinary.com/dsgvwxygr/image/upload/v1695123250/rexapp/logo_wmh7dg.png',
+});
+
+useServerSeoMeta({
+  title: () => `Shop for ${category.value.name} - Rexapp`,
+  ogTitle: () => `Shop for ${category.value.name} - Rexapp`,
+  ogImage: 'https://res.cloudinary.com/dsgvwxygr/image/upload/v1695123250/rexapp/logo_wmh7dg.png',
+});
 </script>
 
 <style lang="scss" scoped>

@@ -20,7 +20,11 @@
 </template>
 
 <script setup>
-
+useSeoMeta({
+  title: 'Shop for products on Rexapp',
+  ogTitle: 'Shop for products on Rexapp',
+  ogImage: 'https://res.cloudinary.com/dsgvwxygr/image/upload/v1695123250/rexapp/logo_wmh7dg.png',
+});
 </script>
 
 <style lang="scss" scoped>

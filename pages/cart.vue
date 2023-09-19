@@ -31,4 +31,10 @@ const cartStore = useCartStore();
 onMounted(() => {
   if(cartStore.isAuth){cartStore.syncCart()}
 });
+
+useSeoMeta({
+  title: 'Your cart on Rexapp :- Order the best automobile parts',
+  ogTitle: 'Your cart on Rexapp :- Order the best automobile parts',
+  ogImage: 'https://res.cloudinary.com/dsgvwxygr/image/upload/v1695123250/rexapp/logo_wmh7dg.png',
+});
 </script>

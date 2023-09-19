@@ -25,22 +25,28 @@
 <script setup>
 import { useNotificationStore } from '@/store/notification';
 
-  const route = useRoute();
-  const notification = useNotificationStore();
+const route = useRoute();
+const notification = useNotificationStore();
 
-  const query = computed(() => route.query.q);
-  const category_id = computed(() => route.query.c || 'all');
-  
-  const { data: results, pending, error } = await useLazyFetch(() => `/search/exec?q=${query.value}&c=${category_id.value}`, {
-    baseURL: useRuntimeConfig().public.baseURL,
-    watch: [query, category_id],
-    immediate: true,
+const query = computed(() => route.query.q);
+const category_id = computed(() => route.query.c || 'all');
+
+const { data: results, pending, error } = await useLazyFetch(() => `/search/exec?q=${query.value}&c=${category_id.value}`, {
+  baseURL: useRuntimeConfig().public.baseURL,
+  watch: [query, category_id],
+  immediate: true,
+});
+
+if(error.value) {
+  notification.setNotification({
+    'type': 'error',
+    'message': error.value.message
   });
+}
 
-  if(error.value) {
-    notification.setNotification({
-      'type': 'error',
-      'message': error.value.message
-    });
-  }
+useSeoMeta({
+  title: () => `Showing results for ${query.value}`,
+  ogTitle: () => `Showing results for ${query.value}`,
+  ogImage: 'https://res.cloudinary.com/dsgvwxygr/image/upload/v1695123250/rexapp/logo_wmh7dg.png',
+});
 </script>

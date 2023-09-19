@@ -37,6 +37,17 @@ if (error.value) {
     message: errorMessage,
   });
 }
+useSeoMeta({
+  title: () => `Buy ${product.value?.name} - Rexapp`,
+  ogTitle: () => `Buy ${product.value?.name} - Rexapp`,
+  ogImage: () => `${product.value?.imageURL}`,
+});
+
+useServerSeoMeta({
+  title: () => `Buy ${product.value.name} - Rexapp`,
+  ogTitle: () => `Buy ${product.value.name} - Rexapp`,
+  ogImage: () => `${product.value.imageURL}`,
+});
 </script>
 
 <style lang="scss" scoped>

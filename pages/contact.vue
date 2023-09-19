@@ -94,3 +94,11 @@
     </div>
   </div>
 </template>
+
+<script setup>
+useSeoMeta({
+  title: 'Contact Rexapp either offline and online via the info provided here.',
+  ogTitle: 'Contact Rexapp either offline and online.',
+  ogImage: 'https://res.cloudinary.com/dsgvwxygr/image/upload/v1695123250/rexapp/logo_wmh7dg.png',
+});
+</script>
