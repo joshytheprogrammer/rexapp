@@ -21,7 +21,7 @@
           <option value="New" >Brand New</option>
           <option value="Used">Used</option>
         </select>
-        <button class="p-4 shadow-md rounded-md bg-green-800 border border-green-800 text-white" type="submit">Construct Search</button>
+        <button class="p-4 my-4 md:my-0 shadow-md rounded-md bg-green-800 border border-green-800 text-white" type="submit">Construct Search</button>
       </form>
     </div>
   </div>
