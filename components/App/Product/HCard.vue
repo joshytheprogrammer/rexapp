@@ -3,7 +3,7 @@
     <div class="max-w-fit md:max-w-full mx-auto md:py-6 md:px-4 lg:px-8">
       <div class="md:grid grid-cols-4 gap-4 items-center">
         <div class="col-span-1">
-          <img :src="p.imageURL" class="w-full max-h-48 object-cover md:h-auto">
+          <img :src="p.imageURL" class="w-full max-h-48 object-contain md:h-auto">
         </div>
         <div class="col-span-3">
           <div class="p-4 text-slate-700 text-left">

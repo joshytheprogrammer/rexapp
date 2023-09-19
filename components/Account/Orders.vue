@@ -2,8 +2,11 @@
   <Transition name="fade">
     <div class="px-4 sm:px-8 md:px-8 overflow-x-auto lg:px-18 bg-gray-400 py-4">
       <table class="border-collapse table-auto w-full text-sm">
-        <caption class="text-black pt-4 text-xs caption-bottom font-medium text-center">
+        <caption v-if="orders.length > 0" class="text-black pt-4 text-xs caption-bottom font-medium text-center">
           Orders Version 1.0 - Displaying Your <span class="text-green-800 font-semibold">{{ orders.length }}</span> Recent Orders.
+        </caption>
+        <caption v-else class="text-black pt-4 text-xs caption-bottom font-medium text-center">
+          You haven't made any recent orders. You can do so <NuxtLink class="hover:text-green-800" to="/shop">here</NuxtLink>
         </caption>
         <thead class="bg-green-800">
           <tr class="text-white text-left font-medium">
