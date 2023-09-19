@@ -2,9 +2,9 @@
   <div class="w-full">
     <CategoryJumbotron :name="category.name" :desc="category.description" />
     <AppError v-if="error" :error="error"  />
+    <AppLoading v-else-if="pending" />
     <div v-else class="px-4 sm:px-8 md:px-8 lg:px-18 py-4 ">
-      <AppLoading v-if="pending" />
-      <CategoryProducts v-else :id="category._id" />
+      <CategoryProducts :id="category._id" />
     </div>
   </div>
 </template>

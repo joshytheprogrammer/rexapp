@@ -4,19 +4,18 @@
       <SearchPCategories />
     </section>
     <section class="col-span-3">
-      <section v-if="results.categories.length === 0 & results.products.length === 0 || results.length === 0">
+      <AppLoading v-if="pending" />
+      <section v-else-if="results.categories.length === 0 & results.products.length === 0 || results.length === 0">
         <p class="text-center lg:text-left text-gray-800 mt-4">
           We couldn't find anything. Please try using the <NuxtLink class="text-green-800 underline" to="/#rexapp_s_c">search constructor</NuxtLink> 
         </p>
       </section>
       <section v-else>
         <div v-for="p in results.categories" :key="p._id"  class="mb-2">
-          <AppLoading v-if="pending" />
-          <AppCategoryCard class="mx-auto md:mx-0" :p="p" :sID="results.searchId" v-else />
+          <AppCategoryCard class="mx-auto md:mx-0" :p="p" :sID="results.searchId"/>
         </div>
         <div v-for="p in results.products" :key="p._id" class="mb-2">
-          <AppProductLHCard v-if="pending" />
-          <AppProductHCard :p="p" :sID="results.searchId" v-else />
+          <AppProductHCard :p="p" :sID="results.searchId" />
         </div>
       </section>
     </section>
@@ -38,7 +37,7 @@ import { useNotificationStore } from '@/store/notification';
     immediate: true,
   });
 
-  if(error.value || !results.value) {
+  if(error.value) {
     notification.setNotification({
       'type': 'error',
       'message': error.value.message
