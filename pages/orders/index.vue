@@ -28,7 +28,7 @@ if(!isValidObjectId(orderID.value)){
   notification.setNotification({type: 'error', message: 'Enter Valid Order ID',});
 }
 
-const { data: order, pending, error } = await useFetch(() => `/orders/byId/${orderID.value}`, {
+const { data: order, pending, error } = await useLazyFetch(() => `/orders/byId/${orderID.value}`, {
   baseURL: useRuntimeConfig().public.baseURL,
   headers: {
     authorization: token,

@@ -79,8 +79,8 @@
   const loading = computed(() => auth.auth.loading);
 
   const user = reactive({
-    username: 'joshytheprogrammer',
-    password: 'anicepassword'
+    username: '',
+    password: ''
   });
 
   function login() {

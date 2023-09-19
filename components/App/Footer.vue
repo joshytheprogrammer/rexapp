@@ -84,7 +84,7 @@
 </template>
 
 <script setup>
-const { data, error } = await useFetch('/categories/all?fields=_id,name,slug&sort=name&limit=5', {
+const { data } = await useLazyFetch('/categories/all?fields=_id,name,slug&sort=name&limit=5', {
   baseURL: useRuntimeConfig().public.baseURL,
 });
 

@@ -79,9 +79,9 @@
   const loading = computed(() => auth.auth.loading);
 
   const user = reactive({
-    username: 'joshytheprogrammer',
-    email: 'jurassicjoshua@proton.me',
-    password: 'anicepassword'
+    username: '',
+    email: '',
+    password: ''
   });
 
   function register() {

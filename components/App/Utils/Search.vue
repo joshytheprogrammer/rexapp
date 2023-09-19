@@ -2,7 +2,8 @@
   <form class="flex items-center border border-gray-300 rounded max-w-screen-md" @submit.prevent="performRedirect">
     <select class="border-r focus:border-green-800 outline-none cursor-pointer px-2 lg:px-4 py-3 sm:block md:hidden lg:block" v-model="category_id">
       <option value="all" selected>All Categories</option>
-      <option v-for="c in categories" :key="c._id" :value="c._id">{{ c.name }}</option>
+      <option value="loading" disabled v-if="pending">Loading...</option>
+      <option v-for="c in categories" :key="c._id" :value="c._id" v-else>{{ c.name }}</option>
     </select>  
     <input class="lg:w-96 w-80 px-1 lg:px-2 py-3 outline-none border-none placeholder:text-slate-400 placeholder:font-light" type="text" placeholder="Search products..." v-model="query">
     <button class="cursor-pointer h-full transition-all duration-300 bg-black hover:bg-green-800 text-white px-2 lg:px-4 py-3 rounded-r ">
@@ -22,7 +23,7 @@
     query.value = route.query.q;
   });
   
-  const { data } = await useFetch('/categories/all?fields=_id,name&sort=name&limit=20', {
+  const { data, pending } = await useLazyFetch('/categories/all?fields=_id,name&sort=name&limit=20', {
     baseURL: useRuntimeConfig().public.baseURL,
   });
 

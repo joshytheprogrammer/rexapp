@@ -22,7 +22,7 @@
                 <div class="hidden md:block bg-gray-300 h-12 w-full rounded-md"></div>
               </div>
               <div class="flex justify-between">
-                <div class="bg-gray-400 hover:bg-gray-500 transition-all duration-300 text-white text-xs font-medium rounded-md px-4 py-2 bg-gray-300 h-8 w-24 rounded-md"></div>
+                <div class="bg-gray-400 hover:bg-gray-500 transition-all duration-300 text-white text-xs font-medium rounded-md px-4 py-2 h-8 w-24"></div>
               </div>
             </div>
           </div>

@@ -14,7 +14,7 @@
           <div class="block bg-gray-300 h-6 w-24 rounded-md"></div>
         </div>
         <div class="flex justify-between">
-          <div class="bg-gray-400 hover:bg-gray-500 transition-all duration-300 text-white text-xs font-medium rounded-md px-4 py-2 bg-gray-300 h-8 w-20 rounded-md" ></div>
+          <div class="bg-gray-400 hover:bg-gray-500 transition-all duration-300 text-white text-xs font-medium rounded-md px-4 py-2 h-8 w-20" ></div>
         </div>
       </div>
     </div>

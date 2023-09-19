@@ -11,7 +11,8 @@
       </section>
       <section v-else>
         <div v-for="p in results.categories" :key="p._id"  class="mb-2">
-          <AppCategoryCard class="mx-auto md:mx-0" :p="p" :sID="results.searchId" />
+          <AppLoading v-if="pending" />
+          <AppCategoryCard class="mx-auto md:mx-0" :p="p" :sID="results.searchId" v-else />
         </div>
         <div v-for="p in results.products" :key="p._id" class="mb-2">
           <AppProductLHCard v-if="pending" />
@@ -31,7 +32,7 @@ import { useNotificationStore } from '@/store/notification';
   const query = computed(() => route.query.q);
   const category_id = computed(() => route.query.c || 'all');
   
-  const { data: results, pending, error } = await useFetch(() => `/search/exec?q=${query.value}&c=${category_id.value}`, {
+  const { data: results, pending, error } = await useLazyFetch(() => `/search/exec?q=${query.value}&c=${category_id.value}`, {
     baseURL: useRuntimeConfig().public.baseURL,
     watch: [query, category_id],
     immediate: true,

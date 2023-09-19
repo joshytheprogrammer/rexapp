@@ -11,9 +11,5 @@
 </template>
 
 <script setup>
-defineProps(['name', 'desc'])
+defineProps(['name', 'desc']);
 </script>
-
-<style lang="scss" scoped>
-
-</style>

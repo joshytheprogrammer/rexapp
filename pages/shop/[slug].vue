@@ -1,6 +1,7 @@
 <template>
   <div class="w-full px-4 sm:px-8 md:px-8 lg:px-18 py-4 mx-auto bg-gray-100">
     <AppError v-if="error" :error="error" />
+    <AppLoading v-else-if="pending" />
     <ShopProduct v-else :product="product" />
   </div>
 </template>
@@ -20,7 +21,7 @@ const queryParameters = searchId.value !== null && searchId.value !== undefined
   ? `?sID=${searchId.value}`
   : '';
 
-const { data: product, error } = await useFetch(() => `/products/bySlug/${productSlug.value}${queryParameters}`, {
+const { data: product, pending, error } = await useLazyFetch(() => `/products/bySlug/${productSlug.value}${queryParameters}`, {
   baseURL: useRuntimeConfig().public.baseURL,
   transform: (product) => {
     return product.product
