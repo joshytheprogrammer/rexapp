@@ -5,7 +5,7 @@ export const useSearchUtilities = () => {
     // Remove special characters from the term string
     term = term.replace(regex, '');
 
-    if(term.length < 5) {return}
+    if(term.length < 3) {return}
   
     if (!c_id) {
       c_id = "all";

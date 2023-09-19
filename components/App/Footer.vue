@@ -11,7 +11,7 @@
           <button type="submit" class="flex-none rounded-r-md bg-green-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Subscribe</button>
         </div>
     </div>
-    <div class="block mx-auto justify-center lg:flex justify-between gap-4 py-8 text-white border-b border-gray-800">
+    <div class="block mx-auto justify-center lg:flex lg:justify-between gap-4 py-8 text-white border-b border-gray-800">
       <div class="flex flex-col justify-between basis-1/2 text-center lg:text-left lg:pr-8 pb-8 lg:pb-0">
         <h3 class="text-xl font-semibold leading-9 tracking-tight">ABOUT US</h3>
         <p class="text-center lg:text-left text-md leading-8 text-gray-300">The RexApp project is driven by the mission to revolutionize the way automobile spare parts are procured in Nigeria. Through the creation of an intuitive and accessible web application, our goal is to streamline the entire process, making it easier and more convenient for individuals and businesses to source the necessary components for their vehicles.</p>

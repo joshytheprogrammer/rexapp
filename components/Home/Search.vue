@@ -10,6 +10,7 @@
         </select>
         <select class="bg-white focus:shadow-md rounded-md outline-none cursor-pointer px-2 py-3" v-model="search.year">
           <option value="" selected>Select Year</option>
+          <option value="loading" disabled v-if="pending">Loading...</option>
           <option v-for="y in years" :key="y" :value="y">{{ y }}</option>
         </select>
         <select class="bg-white focus:shadow-md rounded-md outline-none cursor-pointer px-2 py-3" v-model="search.category">
@@ -94,7 +95,7 @@ const search = reactive({
   state: ''
 })
 
-const { data } = await useFetch('/categories/all?fields=_id,name&sort=name&limit=20', {
+const { data, pending } = await useLazyFetch('/categories/all?fields=_id,name&sort=name&limit=20', {
   baseURL: useRuntimeConfig().public.baseURL,
 });
 
