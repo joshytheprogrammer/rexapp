@@ -49,7 +49,3 @@ const cartStore = useCartStore();
 const props = defineProps(['product']);
 const { formatPrice } = usePriceUtilities();
 </script>
-
-<style lang="scss" scoped>
-
-</style>

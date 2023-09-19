@@ -3,6 +3,7 @@
     <ShopHeader title="Recent Products" />
     <div class="lg:grid md:grid-cols-3 lg:grid-cols-4 gap-4">
       <AppProductLVCard v-if="pending" />
+      <AppError v-else-if="error" :error="error"  />
       <AppProductVCard v-for="p in data.products" :key="p._id"  class="mx-auto my-4" :p="p" v-else />
     </div>
   </div>

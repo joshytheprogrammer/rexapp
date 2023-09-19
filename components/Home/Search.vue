@@ -114,7 +114,3 @@ function submit(){
   constructSearch(search); 
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

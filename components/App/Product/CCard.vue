@@ -1,5 +1,5 @@
 <template>
-  <li class="flex flex-col justify-center md:grid grid-cols-5 gap-4 justify-between items-center border-b py-4">
+  <li class="flex flex-col justify-center md:grid grid-cols-5 gap-4 md:justify-between items-center border-b py-4">
     <img loading="lazy" :src="data.product.imageURL" :alt="data.product.name+' Rexapp Product'" class="w-full max-h-36 object-contain col-span-1">
     <div class="text-center md:text-left block col-span-2">
       <span class="text-black font-semibold text-base">{{data.product.name}}</span>

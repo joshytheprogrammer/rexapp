@@ -1,6 +1,7 @@
 <template>
   <div class="flex justify-start">
     <AppProductLVCard v-if="pending" />
+    <AppError v-else-if="error" :error="error"  />
     <AppProductVCard v-for="p in data.products" :key="p._id" :p="p" v-else />
   </div>
 </template>
