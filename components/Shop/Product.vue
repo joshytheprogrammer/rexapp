@@ -26,7 +26,7 @@
         </p>
       </p>
       <p class="block"> {{ product.description }} </p>
-      <p class="font-normal text-black text-sm ">
+      <p v-if="product.partNumber || product.specification" class="font-normal text-black text-sm">
         {{ product.partNumber }}, {{ product.specification }}
       </p>
       <div class="flex justify-between">

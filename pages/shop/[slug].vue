@@ -37,6 +37,7 @@ if (error.value) {
     message: errorMessage,
   });
 }
+
 useSeoMeta({
   title: () => `Buy ${product.value?.name} - Rexapp`,
   ogTitle: () => `Buy ${product.value?.name} - Rexapp`,
