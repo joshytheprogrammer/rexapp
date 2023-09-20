@@ -1,9 +1,11 @@
 <template>
-  <div class="flex flex-wrap gap-4 justify-start">
+  <section>
     <AppProductLVCard v-if="pending" />
     <AppError v-else-if="error" :error="error"  />
-    <AppProductVCard v-for="p in data.products" :key="p._id" :p="p" v-else />
-  </div>
+    <div v-else class="flex flex-wrap gap-4 justify-start">
+      <AppProductVCard v-for="p in data.products" :key="p._id" :p="p" />
+    </div>
+  </section>
 </template>
 
 <script setup>
