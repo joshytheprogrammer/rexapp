@@ -3,7 +3,7 @@
     <ShopHeader title="Trending Categories" />
     <AppLoading v-if="pending" />
     <AppError v-else-if="error" :error="error"  />
-    <div v-else class="flex justify-center flex-col my-4 space-y-6 md:grid md:grid-cols-3 lg:grid-cols-5 gap-4">
+    <div v-else class="flex justify-center items-baseline flex-col my-4 space-y-6 md:grid md:grid-cols-3 lg:grid-cols-5 gap-4">
       <AppCategoryCard class="block mx-auto" v-for="p in data.categories" :key="p._id" :p="p" />
     </div>
   </div>
