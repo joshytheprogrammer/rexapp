@@ -42,7 +42,7 @@ const manufacturers = [
   "Hyundai",
   "Kia",
   "Volkswagen",
-  "Mercedes-Benz",
+  "Mercedes Benz",
   "BMW",
   "Audi",
   "Land Rover",
