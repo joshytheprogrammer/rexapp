@@ -11,8 +11,8 @@
         </p>
       </section>
       <section v-else>
-        <div v-for="p in results.categories" :key="p._id"  class="mb-2">
-          <AppCategoryCard class="mx-auto md:mx-0" :p="p" :sID="results.searchId"/>
+        <div class="mb-2 block md:flex gap-4 justify-start items-baseline flex-wrap">
+          <AppCategoryCard v-for="p in results.categories" :key="p._id" class="mx-auto md:mx-0" :p="p" :sID="results.searchId"/>
         </div>
         <div v-for="p in results.products" :key="p._id" class="mb-2">
           <AppProductHCard :p="p" :sID="results.searchId" />
