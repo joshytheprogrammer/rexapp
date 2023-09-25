@@ -67,18 +67,18 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-wrap justify-center text-center md:text-left md:justify-between items-center py-8 text-white">
+    <div class="flex flex-wrap justify-center text-center md:text-left md:justify-between items-center py-6 text-white">
       <div class="w-fit">
         <NuxtLink class="flex items-center space-around no-underline" to="/">
-          <!-- <img src="" alt=""> -->
-          <Icon class="text-green-800" size="4em" name="ph:car-fill" />
-          <h1 class="font-bold text-xl md:text-2xl lg:text-4xl italic px-2">Rex<span class="text-green-800">app</span></h1>
+          <img class="h-16" src="/logo.png" alt="Logo">
+          <!-- <Icon class="text-green-800" size="4em" name="ph:car-fill" />
+          <h1 class="font-bold text-xl md:text-2xl lg:text-4xl italic px-2">Rex<span class="text-green-800">app</span></h1> -->
         </NuxtLink>
       </div>
       <p class="py-4 md:py-0">
         &copy; {{ new Date().getFullYear() }} WallsandGates Limited. All Rights Reserved
       </p>
-      <img class="max-w-xs" src="https://res.cloudinary.com/dsgvwxygr/image/upload/v1693404461/rexapp/credit__cards_y6z2yy.png" alt="paywment_providers">
+      <img class="max-w-xs h-16" src="https://res.cloudinary.com/dsgvwxygr/image/upload/v1693404461/rexapp/credit__cards_y6z2yy.png" alt="paywment_providers">
     </div>
   </div>
 </template>

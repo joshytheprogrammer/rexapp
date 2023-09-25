@@ -7,9 +7,9 @@
     <div class="mt-10 w-full sm:mx-auto sm:w-full sm:max-w-sm">
       <form class="space-y-6" @submit.prevent="login">
         <div>
-          <label class="block text-sm font-medium leading-6 text-gray-900">Username</label>
+          <label class="block text-sm font-medium leading-6 text-gray-900">Username or Email</label>
           <div class="mt-2">
-            <input type="text" autocomplete="username" required class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm outline-none ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-800 sm:text-sm sm:leading-6" v-model="user.username">
+            <input type="text" autocomplete="identifier" required class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm outline-none ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-800 sm:text-sm sm:leading-6" v-model="user.identifier">
           </div>
         </div>
 
@@ -79,7 +79,7 @@
   const loading = computed(() => auth.auth.loading);
 
   const user = reactive({
-    username: '',
+    identifier: '',
     password: ''
   });
 

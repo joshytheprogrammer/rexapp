@@ -1,6 +1,6 @@
 <template>
   <div class="bg-transparent border rounded-md w-72 mx-auto md:mx-2 my-4">
-    <img :src="p.imageURL" class="w-full max-h-48 object-contain">
+    <img @click="$router.push('/shop/'+p.slug)" loading="lazy" :src="p.imageURL" class="w-full max-h-48 object-contain">
     <div class="p-4 text-gray-700 text-left">
       <p class="flex items-center justify-start">
         <template v-for="(index) in 5">

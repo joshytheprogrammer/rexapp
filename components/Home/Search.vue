@@ -5,20 +5,24 @@
     <div class="bg-green-200 px-6 py-4 mx-6 lg:mx-8 rounded-md">
       <form class="flex flex-col md:flex-row  justify-around flex-wrap gap-2 transition-all duration-300 py-4" @submit.prevent="submit">
         <select class="bg-white focus:shadow-md rounded-md outline-none cursor-pointer px-2 py-2" v-model="search.manufacturer">
-          <option value="" selected>Select Manufacturer</option>
+          <option value="" selected disabled>Select Manufacturer</option>
+          <option value="">Any</option>
           <option v-for="m in manufacturers" :key="m" :value="m">{{ m }}</option>
         </select>
         <select class="bg-white focus:shadow-md rounded-md outline-none cursor-pointer px-2 py-3" v-model="search.year">
-          <option value="" selected>Select Year</option>
+          <option value="" selected disabled>Select Year</option>
+          <option value="">Any</option>
           <option value="loading" disabled v-if="pending">Loading...</option>
           <option v-for="y in years" :key="y" :value="y">{{ y }}</option>
         </select>
         <select class="bg-white focus:shadow-md rounded-md outline-none cursor-pointer px-2 py-3" v-model="search.category">
-          <option value="" selected>Select Category</option>
+          <option value="" selected disabled>Select Category</option>
+          <option value="">Any</option>
           <option v-for="c in categories" :key="c._id" :value="c.name">{{ c.name }}</option>
         </select>
         <select class="bg-white focus:shadow-md rounded-md outline-none cursor-pointer px-2 py-3" v-model="search.state">
           <option value="" selected disabled>--Condition--</option>
+          <option value="">Any</option>
           <option value="New" >Brand New</option>
           <option value="Used">Used</option>
         </select>
