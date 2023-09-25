@@ -47,7 +47,7 @@
               <NuxtLink to="/about">About Us</NuxtLink>
             </li>
             <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
-              <NuxtLink to="/orders">Track Orders</NuxtLink>
+              <NuxtLink to="/account/my?page=orders">Track Orders</NuxtLink>
             </li>
             <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
               <NuxtLink to="/about/privacy">Privacy Policy</NuxtLink>
