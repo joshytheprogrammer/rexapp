@@ -15,7 +15,7 @@
           <AppCategoryCard v-for="p in results.categories" :key="p._id" class="mx-auto md:mx-0" :p="p" :sID="results.searchId"/>
         </div>
         <div v-for="p in results.products" :key="p._id" class="mb-2">
-          <AppProductHCard :p="p" :sID="results.searchId" />
+          <AppProductHCard class="mx-auto md:mx-0" :p="p" :sID="results.searchId" />
         </div>
       </section>
     </section>
