@@ -2,7 +2,7 @@
   <li class="grid grid-cols-3 gap-4 justify-between border-b py-8">
     <img loading="lazy" :src="data.product.imageURL" :alt="data.product.name+' Rexapp Product'" class="col-span-1 w-full max-h-48 object-contain">
     <div class="col-span-2 space-y-2">
-      <span class="text-black font-semibold text-base">{{data.product.name}}</span>
+      <span class="text-black capitalize font-semibold text-base">{{data.product.name}}</span>
       <p class="py-1 text-gray-500 text-sm font-medium ">
         <span>Made by: </span>
         <span class="text-black font-semibold">{{data.product.manufacturer}}</span>

@@ -16,7 +16,7 @@
         </span>
       </p>
       <p class="py-4 space-y-2">
-        <NuxtLink :to="'/shop/'+p.slug" class="text-black font-semibold text-base md:text-lg hover:text-green-800"> {{ p.name }} </NuxtLink>
+        <NuxtLink :to="'/shop/'+p.slug" class="text-black font-semibold capitalize text-base md:text-lg hover:text-green-800"> {{ p.name }} </NuxtLink>
         <span class="block text-gray-700 font-semibold text-base"> {{ formatPrice(p.price.min) + " - " + formatPrice(p.price.max) }}</span>
       </p>
       <div class="flex justify-between">

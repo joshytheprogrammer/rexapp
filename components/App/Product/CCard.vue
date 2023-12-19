@@ -2,7 +2,7 @@
   <li class="flex flex-col justify-center md:grid grid-cols-5 gap-4 md:justify-between items-center border-b py-4">
     <img loading="lazy" :src="product.imageURL" :alt="product.name+' Rexapp Product'" class="w-full max-h-36 object-contain col-span-1">
     <div class="text-center md:text-left block col-span-2">
-      <span class="text-black font-semibold text-base">{{product.name}}</span>
+      <span class="text-black capitalize font-semibold text-base">{{product.name}}</span>
       <p class="py-1 text-gray-500 text-sm font-medium ">
         <span>Made by: </span>
         <span class="text-black font-semibold">{{product.manufacturer}}</span>
