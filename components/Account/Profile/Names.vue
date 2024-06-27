@@ -73,8 +73,8 @@ const notification = useNotificationStore();
 
 // Handle First Names...
 const names = reactive({
-  firstName: props.user.firstName,
-  lastName: props.user.lastName,
+  firstName: props.user.first_name ? props.user.first_name : '',
+  lastName: props.user.last_name ? props.user.last_name : '',
 });
 
 const editingNames = ref(false);
@@ -91,7 +91,7 @@ async function submitNames() {
     baseURL: useRuntimeConfig().public.baseURL,
     method: "POST",
     headers: {
-      authorization: props.token,
+      Authorization: 'Bearer '+props.token,
     },
     body: names,
   });

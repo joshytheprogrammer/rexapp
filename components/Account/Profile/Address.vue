@@ -74,10 +74,10 @@ const notification = useNotificationStore();
 
 // Handle Address...
 const address = reactive({
-  street: props.user.address.street,
-  city: props.user.address.city,
-  state: props.user.address.state,
-  landmark: props.user.address.landmark,
+  street: props.user.street,
+  city: props.user.city,
+  state: props.user.state,
+  landmark: props.user.landmark,
 });
 
 const editingAddress = ref(false);
@@ -94,7 +94,7 @@ async function submitAddress() {
     baseURL: useRuntimeConfig().public.baseURL,
     method: "POST",
     headers: {
-      authorization: props.token,
+      Authorization: 'Bearer '+props.token,
     },
     body: address,
   });

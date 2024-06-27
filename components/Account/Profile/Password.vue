@@ -71,7 +71,7 @@ async function submitPassword() {
     baseURL: useRuntimeConfig().public.baseURL,
     method: "POST",
     headers: {
-      authorization: props.token,
+      Authorization: 'Bearer '+props.token,
     },
     body: formData,
   });

@@ -53,7 +53,7 @@ async function submitName() {
     baseURL: useRuntimeConfig().public.baseURL,
     method: "POST",
     headers: {
-      authorization: props.token,
+      Authorization: 'Bearer '+props.token,
     },
     body: {username},
   });

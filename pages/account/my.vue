@@ -23,7 +23,7 @@ const pageID = computed(() => route.query.page || "profile");
 const { data: user, error } = await useFetch('/user/profile', {
   baseURL: useRuntimeConfig().public.baseURL,
   headers: {
-    authorization: token,
+    Authorization: 'Bearer ' + token.value,
   },
   transform: (user) => {
     return user.profile

@@ -124,7 +124,7 @@ export const useCartStore = defineStore('cart', {
         baseURL: useRuntimeConfig().public.baseURL,
         method: "POST",
         headers: {
-          authorization: useAuthStore().getAuth.token,
+          Authorization: 'Bearer ' + useAuthStore().getAuth.token,
         },
         body: JSON.stringify({ cart: this.cart })
       });
@@ -176,11 +176,11 @@ export const useCartStore = defineStore('cart', {
     async syncCart() {
       const notification = useNotificationStore();
 
-      const { error } = await useFetch('/cart/sync-cart', {
+      const { error } = await useFetch('/cart/sync', {
         baseURL: useRuntimeConfig().public.baseURL,
         method: "POST",
         headers: {
-          authorization: useAuthStore().getAuth.token,
+          Authorization: 'Bearer ' + useAuthStore().getAuth.token,
         },
         body: JSON.stringify({ cart: this.cart })
       });
@@ -201,7 +201,7 @@ export const useCartStore = defineStore('cart', {
         baseURL: useRuntimeConfig().public.baseURL,
         method: "GET",
         headers: {
-          authorization: useAuthStore().getAuth.token,
+          Authorization: 'Bearer ' + useAuthStore().getAuth.token,
         },
       });
 

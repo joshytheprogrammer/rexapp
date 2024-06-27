@@ -31,7 +31,7 @@ if(!isValidObjectId(orderID.value)){
 const { data: order, pending, error } = await useLazyFetch(() => `/orders/byId/${orderID.value}`, {
   baseURL: useRuntimeConfig().public.baseURL,
   headers: {
-    authorization: token,
+    Authorization: 'Bearer ' + this.auth.token,
   },
 });
 </script>

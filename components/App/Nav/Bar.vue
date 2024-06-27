@@ -28,7 +28,7 @@
               <svg :width="size" :height="size" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
               <circle :cx="size" :cy="size" :r="size" fill="#166534" />
               <text :x="size" :y="size" font-size="40" text-anchor="middle" dy="0.35em" fill="white">
-                {{ getUserData().name.charAt(0).toUpperCase() }}
+                {{ getUserData().username.charAt(0).toUpperCase() }}
               </text>
             </svg>
             </NuxtLink>

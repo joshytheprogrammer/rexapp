@@ -53,7 +53,7 @@ async function submitEmail() {
     baseURL: useRuntimeConfig().public.baseURL,
     method: "POST",
     headers: {
-      authorization: props.token,
+      Authorization: 'Bearer '+props.token,
     },
     body: {email},
   });

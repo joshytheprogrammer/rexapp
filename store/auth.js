@@ -104,18 +104,18 @@ export const useAuthStore = defineStore('auth', {
       const { data, error } = await useFetch('/auth/me', {
         baseURL: useRuntimeConfig().public.baseURL,
         headers: {
-          authorization: this.auth.token,
+          Authorization: 'Bearer ' + this.auth.token,
         },
       });
 
-      if (!data.value.data || error.value) {
+      if (!data.value || error.value) {
         return navigateTo('/account/auth');
       }
 
-      this.user = data.value.data
+      this.user = data.value
 
       const user = useCookie('user')
-      user.value = data.value.data
+      user.value = data.value
     },
     async logout() {
       const refreshToken = useCookie('refreshToken').value;
@@ -123,6 +123,9 @@ export const useAuthStore = defineStore('auth', {
       const { error } = await useFetch('/auth/logout', {
         baseURL: useRuntimeConfig().public.baseURL,
         method: 'POST',
+        headers: {
+          Authorization: 'Bearer ' + this.auth.token,
+        },
         body: { refreshToken },
         credentials: 'include'
       });

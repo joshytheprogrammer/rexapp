@@ -8,7 +8,7 @@
     <main>
       <NuxtLoadingIndicator />
       <NuxtPage />
-    </main>
+    </main> 
     <AppToTop />
     <AppFooter />
   </div>
