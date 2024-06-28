@@ -37,7 +37,7 @@ import { useNotificationStore } from '@/store/notification';
 
 const notification = useNotificationStore();
 
-const email = ref(props.user.email);
+const email = ref(props.user?.email);
 
 const editingEmail = ref(false);
 const submittingEmail = ref(false);

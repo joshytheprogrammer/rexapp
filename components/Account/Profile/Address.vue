@@ -74,10 +74,10 @@ const notification = useNotificationStore();
 
 // Handle Address...
 const address = reactive({
-  street: props.user.street,
-  city: props.user.city,
-  state: props.user.state,
-  landmark: props.user.landmark,
+  street: props.user?.street,
+  city: props.user?.city,
+  state: props.user?.state,
+  landmark: props.user?.landmark,
 });
 
 const editingAddress = ref(false);

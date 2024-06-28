@@ -4,7 +4,7 @@ import { useCartStore } from './cart'
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({ 
-    user: null,
+    user: useCookie('user').value,
     auth: {
       loading: false,
       token: useCookie('accessToken').value,
@@ -117,34 +117,34 @@ export const useAuthStore = defineStore('auth', {
       const user = useCookie('user')
       user.value = data.value
     },
-    async logout() {
-      const refreshToken = useCookie('refreshToken').value;
+    // async logout() {
+    //   const refreshToken = useCookie('refreshToken').value;
 
-      const { error } = await useFetch('/auth/logout', {
-        baseURL: useRuntimeConfig().public.baseURL,
-        method: 'POST',
-        headers: {
-          Authorization: 'Bearer ' + this.auth.token,
-        },
-        body: { refreshToken },
-        credentials: 'include'
-      });
+    //   const { error } = await useFetch('/auth/logout', {
+    //     baseURL: useRuntimeConfig().public.baseURL,
+    //     method: 'POST',
+    //     headers: {
+    //       Authorization: 'Bearer ' + this.auth.token,
+    //     },
+    //     body: { refreshToken },
+    //     credentials: 'include'
+    //   });
 
-      // Clear cookies and reset state
-      useCookie('accessToken').value = null;
-      useCookie('refreshToken').value = null;
-      useCookie('user').value = null;
+    //   // Clear cookies and reset state
+    //   useCookie('accessToken').value = null;
+    //   useCookie('refreshToken').value = null;
+    //   useCookie('user').value = null;
       
-      this.user = null;
-      this.auth.token = null;
+    //   this.user = null;
+    //   this.auth.token = null;
 
-      if (error.value) {
-        // Handle error here
-        return;
-      }
+    //   if (error.value) {
+    //     // Handle error here
+    //     return;
+    //   }
 
-      navigateTo('/account/auth');
-    }
+    //   navigateTo('/account/auth');
+    // }
   },
   getters: {
     getUser(state) {

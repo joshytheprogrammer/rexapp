@@ -37,7 +37,7 @@ import { useNotificationStore } from '@/store/notification';
 
 const notification = useNotificationStore();
 
-const username = ref(props.user.username);
+const username = ref(props.user?.username);
 
 const editingName = ref(false);
 const submittingName = ref(false);

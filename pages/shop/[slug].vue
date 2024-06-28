@@ -30,7 +30,8 @@ const { data: product, pending, error } = await useLazyFetch(() => `/products/by
 
 if (error.value) {
   const errorMessage = error.value.data?.message || "Something went wrong.";
-  authStore.logout();
+  // authStore.logout();
+  console.log(error.value)
   
   notification.setNotification({
     type: 'error',

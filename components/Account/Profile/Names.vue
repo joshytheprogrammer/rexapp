@@ -5,10 +5,10 @@
       <div class="relative rounded-md shadow-sm">
         <input 
           type="text" 
-          autocomplete="firstName"
+          autocomplete="first_name"
           required
           :disabled="!editingNames"
-          v-model="names.firstName"
+          v-model="names.first_name"
           class="block w-full rounded-md border-0 py-1.5 pl-1.5 pr-20 text-black shadow-sm outline-none ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-800 sm:text-sm sm:leading-6 disabled:cursor-not-allowed">
           <div class="absolute inset-y-0 right-0 flex items-center">
             <button
@@ -35,10 +35,10 @@
       <div class="relative rounded-md shadow-sm">
         <input 
           type="text" 
-          autocomplete="firstName"
+          autocomplete="last_name"
           required
           :disabled="!editingNames"
-          v-model="names.lastName"
+          v-model="names.last_name"
           class="block w-full rounded-md border-0 py-1.5 pl-1.5 pr-20 text-black shadow-sm outline-none ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-800 sm:text-sm sm:leading-6 disabled:cursor-not-allowed">
           <div class="absolute inset-y-0 right-0 flex items-center">
             <button
@@ -73,8 +73,8 @@ const notification = useNotificationStore();
 
 // Handle First Names...
 const names = reactive({
-  firstName: props.user.first_name ? props.user.first_name : '',
-  lastName: props.user.last_name ? props.user.last_name : '',
+  first_name: props.user.first_name ? props.user.first_name : '',
+  last_name: props.user.last_name ? props.user.last_name : '',
 });
 
 const editingNames = ref(false);
