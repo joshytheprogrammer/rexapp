@@ -12,7 +12,7 @@
         
         <p class="pt-4 text-gray-600">Experience the ultimate convenience of completing your purchase in a matter of seconds.</p>
       </div>
-      <ul class="mb-2" v-for="p in cartStore.getCartItems" :key="p.partId" >
+      <ul class="mb-2"  v-for="p in cartStore.getCartItems" :key="p.partId" >
         <AppProductQCCard :p="p" />
       </ul>
       <AppCSummary />

@@ -3,14 +3,14 @@
     <ShopHeader title="Trending Categories" />
     <AppLoading v-if="pending" />
     <AppError v-else-if="error" :error="error"  />
-    <div v-else class="flex flex-wrap justify-center md:justify-start space-x-4 items-baseline ">
+    <div v-else class="lg:grid grid-cols-6 flex flex-wrap justify-center md:justify-start gap-4 items-baseline ">
       <AppCategoryCard class="block py-2" v-for="p in data.categories" :key="p.id" :p="p" />
     </div>
   </div>
 </template>
 
 <script setup>
-const { data, pending, error} = await useLazyFetch('/categories/all?fields=id,name,slug,imageURL&sort=createdAt&limit=10', {
+const { data, pending, error} = await useLazyFetch('/categories/all?fields=id,name,slug,imageURL&sort=createdAt&limit=12', {
   baseURL: useRuntimeConfig().public.baseURL,
 });
 

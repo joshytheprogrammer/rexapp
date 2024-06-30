@@ -44,7 +44,7 @@ const { data } = await useFetch(() => `/products/byId/${props.p.partId}`, {
   key: `${props.p.partId}`
 });
 
-const product = await data.value.product;
+const product = await data.value?.product;
 
 // console.log(props.p.partId, product)
 </script>
