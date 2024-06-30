@@ -7,8 +7,10 @@
         <span>Made by: </span>
         <span class="text-black font-semibold">{{data.product.manufacturer}}</span>
       </p>
-      <p>[<AppCategoryList v-for="c in data.product.categories" :id="c" />]</p>
-      <span class="block py-2 text-gray-700 font-semibold text-base"> {{ formatPrice(data.product.price.min) }} - {{ formatPrice(data.product.price.max) }}</span>
+      <p>
+        <AppCategoryList :id="data.product.category_id" />
+      </p>
+      <span class="block py-2 text-gray-700 font-semibold text-base"> {{ formatPrice(data.product.min_price) }} - {{ formatPrice(data.product.max_price) }}</span>
       <div class="flex">
         <span class="bg-gray-200 p-2 rounded-full border ">{{ p.quantity }}</span>
       </div>

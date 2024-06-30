@@ -3,7 +3,7 @@
     <img :src="product.imageURL" :alt="'Rexapp Product - '+ product.name" class="col-span-1 max-h-96 w-full object-contain md:h-auto">
     <div class="col-span-1 py-4 px-8 space-y-4">
       <span class="text-black font-semibold text-xl md:text-2xl ">{{ product.name }}</span>
-      <p class="text-grey-700 font-medium text-lg"> {{ formatPrice(product.price.min) + " - " + formatPrice(product.price.max) }}</p>
+      <p class="text-grey-700 font-medium text-lg"> {{ formatPrice(product.min_price) + " - " + formatPrice(product.max_price) }}</p>
       <p class="flex items-center justify-start">
         <template v-for="(index) in 5">
           <span class="text-green-800 pr-2" v-if="index <= product.rating">
@@ -22,7 +22,7 @@
           {{ product.manufacturer }}
         </span>
         <p class="font-normal text-black text-sm space-x-2" >
-          [<AppCategoryList v-for="c in product.categories" :id="c" />]
+          <AppCategoryList :id="product.category_id" />
         </p>
       </p>
       <p class="block"> {{ product.description }} </p>
@@ -30,10 +30,10 @@
         {{ product.partNumber }}, {{ product.specification }}
       </p>
       <div class="flex justify-between">
-        <NuxtLink to="/cart" v-if="cartStore.itemInCart(product._id)" class="bg-green-800 hover:bg-green-900 transition-all duration-300 text-white text-xs font-medium rounded-md px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800">
+        <NuxtLink to="/cart" v-if="cartStore.itemInCart(product.id)" class="bg-green-800 hover:bg-green-900 transition-all duration-300 text-white text-xs font-medium rounded-md px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800">
           VIEW CART
         </NuxtLink>
-        <button v-else @click="cartStore.addItem({partId: product._id, quantity: 1})" class="bg-green-800 hover:bg-green-900 transition-all duration-300 text-white text-xs font-medium rounded-md px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800">
+        <button v-else @click="cartStore.addItem({partId: product.id, quantity: 1})" class="bg-green-800 hover:bg-green-900 transition-all duration-300 text-white text-xs font-medium rounded-md px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800">
           ADD TO CART
         </button>
       </div>

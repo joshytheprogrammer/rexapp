@@ -12,9 +12,9 @@
       </section>
       <section v-else>
         <div class="mb-2 block md:flex gap-4 justify-start items-baseline flex-wrap">
-          <AppCategoryCard v-for="p in results.categories" :key="p._id" class="py-2 mx-auto md:mx-0" :p="p" :sID="results.searchId"/>
+          <AppCategoryCard v-for="p in results.categories" :key="p.id" class="py-2 mx-auto md:mx-0" :p="p" :sID="results.searchId"/>
         </div>
-        <div v-for="p in results.products" :key="p._id" class="mb-2">
+        <div v-for="p in results.products" :key="p.id" class="mb-2">
           <AppProductHCard class="mx-auto md:mx-0" :p="p" :sID="results.searchId" />
         </div>
       </section>

@@ -4,7 +4,7 @@
     <AppError v-if="error" :error="error"  />
     <AppLoading v-else-if="pending" />
     <div v-else class="px-4 sm:px-8 md:px-8 lg:px-18 py-4 ">
-      <CategoryProducts :id="category._id" />
+      <CategoryProducts :id="category.id" />
     </div>
   </div>
 </template>

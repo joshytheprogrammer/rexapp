@@ -27,19 +27,19 @@
                   {{ p.manufacturer }}
                 </span>
                 <p class="font-semibold text-black-800 text-sm space-x-2" >
-                  [<AppCategoryList v-for="c in p.categories" :id="c" />]
+                  <AppCategoryList :id="p.category_id" />
                 </p>
               </p>
             </p>
             <div class="py-4">
-              <p class="pb-1 text-grey-700 font-semibold text-base"> {{ formatPrice(p.price.min) + " - " + formatPrice(p.price.max) }}</p>
+              <p class="pb-1 text-grey-700 font-semibold text-base"> {{ formatPrice(p.min_price) + " - " + formatPrice(p.max_price) }}</p>
               <p class="hidden md:block"> {{ p.description }} </p>
             </div>
             <div class="flex justify-between">
-              <button v-if="cartStore.itemInCart(p._id)" @click="cartStore.toggleQuickCart()" class="bg-green-800 hover:bg-green-900 transition-all duration-300 text-white text-xs font-medium rounded-md px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800">
+              <button v-if="cartStore.itemInCart(p.id)" @click="cartStore.toggleQuickCart()" class="bg-green-800 hover:bg-green-900 transition-all duration-300 text-white text-xs font-medium rounded-md px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800">
                 VIEW CART
               </button>
-              <button v-else @click="cartStore.addItem({partId: p._id, quantity: 1})" class="bg-green-800 hover:bg-green-900 transition-all duration-300 text-white text-xs font-medium rounded-md px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800">
+              <button v-else @click="cartStore.addItem({partId: p.id, quantity: 1})" class="bg-green-800 hover:bg-green-900 transition-all duration-300 text-white text-xs font-medium rounded-md px-4 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800">
                 ADD TO CART
               </button>
             </div>

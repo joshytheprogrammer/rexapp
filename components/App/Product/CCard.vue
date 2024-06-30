@@ -7,13 +7,13 @@
         <span>Made by: </span>
         <span class="text-black font-semibold">{{product.manufacturer}}</span>
       </p>
-      <p>[<AppCategoryList v-for="c in product.categories" :id="c" />]</p>
+      <p><AppCategoryList :id="product.category_id" /></p>
       <p class="hidden py-1 md:block space-x-2 ">
         <NuxtLink class="text-sm underline hover:text-green-800 cursor-pointer" :to="'/shop/'+product.slug">View</NuxtLink>
         <a class="text-sm underline hover:text-green-800 cursor-pointer"  @click="cartStore.removeItem(p.partId)">Remove</a>
       </p>
     </div>
-    <span class="col-span-1 block py-2 text-gray-700 font-semibold text-sm text-center"> {{ formatPrice(product.price.min) }} <br> - <br> {{ formatPrice(product.price.max) }}</span>
+    <span class="col-span-1 block py-2 text-gray-700 font-semibold text-sm text-center"> {{ formatPrice(product.min_price) }} <br> - <br> {{ formatPrice(product.max_price) }}</span>
     <select class="bg-gray-200 py-1 px-2 rounded-md border outline-none focus:border-green-800 cursor-pointer" @change="updateQuantity" v-model="props.p.quantity">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -46,5 +46,5 @@ const { data } = await useFetch(() => `/products/byId/${props.p.partId}`, {
 
 const product = await data.value.product;
 
-console.log(props.p.partId, product)
+// console.log(props.p.partId, product)
 </script>

@@ -15,7 +15,7 @@
         </p>
         <p class="flex flex-col">
           <span>Order ID: </span>
-          <span class="font-medium text-xs text-green-800">{{ order._id }}</span> 
+          <span class="font-medium text-xs text-green-800">{{ order.id }}</span> 
         </p>
         <p class="flex flex-col">
           <span>Ordered on: </span>
