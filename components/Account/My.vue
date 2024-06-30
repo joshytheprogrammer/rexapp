@@ -33,7 +33,7 @@ onMounted(async () => {
       type: 'error',
       message: 'Authentication token is missing.',
     });
-    authStore.logout();
+    // await authStore.logout(); 
     router.push({ name: 'login' });
     return;
   }
@@ -53,6 +53,7 @@ onMounted(async () => {
         type: 'error',
         message: errorMessage,
       });
+      await authStore.refresh(); 
       return;
     }
 

@@ -117,34 +117,78 @@ export const useAuthStore = defineStore('auth', {
       const user = useCookie('user')
       user.value = data.value
     },
-    // async logout() {
-    //   const refreshToken = useCookie('refreshToken').value;
+    async refresh() {
+      const notification = useNotificationStore();
+      const refreshToken = useCookie('refreshToken').value;
 
-    //   const { error } = await useFetch('/auth/logout', {
-    //     baseURL: useRuntimeConfig().public.baseURL,
-    //     method: 'POST',
-    //     headers: {
-    //       Authorization: 'Bearer ' + this.auth.token,
-    //     },
-    //     body: { refreshToken },
-    //     credentials: 'include'
-    //   });
+      const { data, error } = await useFetch('/auth/refresh', {
+        baseURL: useRuntimeConfig().public.baseURL,
+        method: 'POST',
+        headers: {
+          Authorization: 'Bearer ' + refreshToken,
+        },
+        body: { 'refreshToken': refreshToken },
+        credentials: 'include'
+      });
 
-    //   // Clear cookies and reset state
-    //   useCookie('accessToken').value = null;
-    //   useCookie('refreshToken').value = null;
-    //   useCookie('user').value = null;
+
+      if (error.value) {
+        const errorMessage = error.value.message || "Attempt failed, it's probably our fault.";
       
-    //   this.user = null;
-    //   this.auth.token = null;
+        notification.setNotification({
+          type: 'error',
+          message: errorMessage,
+        });
+      
+        this.auth.loading = false;
+        await this.logout();
+      }
 
-    //   if (error.value) {
-    //     // Handle error here
-    //     return;
-    //   }
+      const cookie = useCookie('accessToken');
+      cookie.value = data.value.accessToken;
+      this.auth.token = cookie.value;
 
-    //   navigateTo('/account/auth');
-    // }
+      // console.log(data.value)
+
+      await this.me();
+      
+      try {
+        await useCartStore().initializeCartFromServer();
+      } catch (error) {
+        notification.setNotification({
+          'type': 'error',
+          'message': 'Could not fetch cart from server...'
+        });
+      }
+    },
+    async logout() {
+      const refreshToken = useCookie('refreshToken').value;
+
+      const { error } = await useFetch('/auth/logout', {
+        baseURL: useRuntimeConfig().public.baseURL,
+        method: 'POST',
+        headers: {
+          Authorization: 'Bearer ' + this.auth.token,
+        },
+        body: { refreshToken },
+        credentials: 'include'
+      });
+
+      // Clear cookies and reset state
+      useCookie('accessToken').value = null;
+      useCookie('refreshToken').value = null;
+      useCookie('user').value = null;
+      
+      this.user = null;
+      this.auth.token = null;
+
+      if (error.value) {
+        // Handle error here
+        return;
+      }
+
+      navigateTo('/account/auth');
+    }
   },
   getters: {
     getUser(state) {
