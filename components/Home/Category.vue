@@ -10,11 +10,18 @@
 </template>
 
 <script setup>
-const { data, pending, error} = await useFetch('/categories/all', {
+const { data, pending, error, refresh} = await useFetch('/categories/all', {
   baseURL: useRuntimeConfig().public.baseURL,
-  query: {fields:'id,name,slug,imageURL', sort: 'createdAt', limit: 12},
+  query: {
+    fields:'id,name,slug,imageURL', 
+    sort: 'createdAt', 
+    limit: 12
+  },
 });
 
+// onMounted(async () => {
+//   await refresh();
+// });
 </script>
 
 <style lang="scss" scoped>

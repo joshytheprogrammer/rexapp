@@ -186,7 +186,7 @@ export const useCartStore = defineStore('cart', {
       });
 
       if (error.value) {
-        const errorMessage = error.value.data?.message || "An error occurred wehn syncing your cart.";
+        const errorMessage = error.value.data?.message || "An error occurred when syncing your cart.";
       
         notification.setNotification({
           type: 'error',

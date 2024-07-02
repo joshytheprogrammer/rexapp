@@ -6,13 +6,18 @@
       <AppProductLVCard v-for="index in 4" :key="index" v-if="pending" />
       <AppProductVCard v-else v-for="p in data.products" :key="p.id" class="mx-auto my-4" :p="p"/>
     </div>
+    {{ error }}
   </div>
 </template>
 
 <script setup>
 const { data, pending, error } = await useFetch('/products/random', {
   baseURL: useRuntimeConfig().public.baseURL,
-  query: {fields:'id,name,min_price,max_price,slug,imageURL,rating', sort: 'createdAt', limit: 20},
+  query: {
+    fields:'id,name,min_price,max_price,slug,imageURL,rating', 
+    sort: 'createdAt', 
+    limit: 20
+  },
 });
 
 </script>

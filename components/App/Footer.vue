@@ -91,4 +91,5 @@ const { data } = await useFetch('/categories/all', {
   });
 
 const categories = data.value?.categories;
+
 </script> 
