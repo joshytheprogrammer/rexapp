@@ -84,9 +84,11 @@
 </template>
 
 <script setup>
-const { data } = await useLazyFetch('/categories/all?fields=id,name,slug&sort=name&limit=5', {
-  baseURL: useRuntimeConfig().public.baseURL,
-});
+
+const { data } = await useFetch('/categories/all', {
+    baseURL: useRuntimeConfig().public.baseURL,
+    query: {fields:'id,name,slug', sort: 'name', limit: 5},
+  });
 
 const categories = data.value?.categories;
-</script>
+</script> 

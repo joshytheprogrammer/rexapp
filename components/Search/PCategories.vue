@@ -12,8 +12,9 @@
 </template>
 
 <script setup>
-const { data } = await useFetch('/categories/all?fields=id,name,slug,imageURL&sort=name&limit=5', {
+const { data } = await useFetch('/categories/all', {
   baseURL: useRuntimeConfig().public.baseURL,
+  query: {fields:'id,name,slug,imageURL', sort: 'name', limit: 5},
 });
 
 </script>

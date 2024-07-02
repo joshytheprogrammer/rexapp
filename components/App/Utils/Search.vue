@@ -23,8 +23,9 @@
     query.value = route.query.q;
   });
   
-  const { data, pending } = await useLazyFetch('/categories/all?fields=id,name&sort=name&limit=20', {
+  const { data, pending } = await useFetch('/categories/all', {
     baseURL: useRuntimeConfig().public.baseURL,
+    query: {fields:'id,name,slug', sort: 'name', limit: 20},
   });
 
   const categories = data.value?.categories;

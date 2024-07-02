@@ -10,9 +10,12 @@
 </template>
 
 <script setup>
-const { data, pending, error } = await useLazyFetch('/products/recent?limit=30', {
+const { data, pending, error } = await useFetch('/products/recent', {
   baseURL: useRuntimeConfig().public.baseURL,
   immediate: true,
+  query: {
+    limit: 30
+  }
 });
 </script>
 

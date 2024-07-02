@@ -22,7 +22,7 @@ const queryParameters = searchId.value !== null && searchId.value !== undefined
   ? `?sID=${searchId.value}`
   : '';
 
-const { data: category, pending, error } = await useLazyFetch(() => `/categories/bySlug/${productSlug.value}${queryParameters}`, {
+const { data: category, pending, error } = await useFetch(() => `/categories/bySlug/${productSlug.value}${queryParameters}`, {
   baseURL: useRuntimeConfig().public.baseURL,
   transform: (category) => {
     return category.category

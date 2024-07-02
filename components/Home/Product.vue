@@ -10,9 +10,9 @@
 </template>
 
 <script setup>
-const { data, pending, error } = await useLazyFetch('/products/random?limit=20&fields=id,name,min_price,max_price,slug,imageURL,rating&sort=createdAt', {
+const { data, pending, error } = await useFetch('/products/random', {
   baseURL: useRuntimeConfig().public.baseURL,
-  immediate: true,
+  query: {fields:'id,name,min_price,max_price,slug,imageURL,rating', sort: 'createdAt', limit: 20},
 });
 
 </script>

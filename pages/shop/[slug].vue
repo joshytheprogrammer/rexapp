@@ -21,7 +21,7 @@ const queryParameters = searchId.value !== null && searchId.value !== undefined
   ? `?sID=${searchId.value}`
   : '';
 
-const { data: product, pending, error } = await useLazyFetch(() => `/products/bySlug/${productSlug.value}${queryParameters}`, {
+const { data: product, pending, error } = await useFetch(() => `/products/bySlug/${productSlug.value}${queryParameters}`, {
   baseURL: useRuntimeConfig().public.baseURL,
   transform: (product) => {
     return product.product
