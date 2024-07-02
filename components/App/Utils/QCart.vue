@@ -12,8 +12,8 @@
         
         <p class="pt-4 text-gray-600">Experience the ultimate convenience of completing your purchase in a matter of seconds.</p>
       </div>
-      <ul class="mb-2"  v-for="p in cartStore.getCartItems" :key="p.partId" >
-        <AppProductQCCard :p="p" />
+      <ul class="mb-2" v-if="cartStore.getCartNo > 0" >
+        <AppProductQCCard v-for="p in cartStore.getCartItems" :key="p.partId"  :p="p" />
       </ul>
       <AppCSummary />
       <div class="flex justify-between text-white py-4">

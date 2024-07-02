@@ -46,5 +46,4 @@ const { data } = await useFetch(() => `/products/byId/${props.p.partId}`, {
 
 const product = await data.value?.product;
 
-// console.log(props.p.partId, product)
 </script>
