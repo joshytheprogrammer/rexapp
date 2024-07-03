@@ -14,7 +14,11 @@
 <script setup>
 const { data } = await useFetch('/categories/all', {
   baseURL: useRuntimeConfig().public.baseURL,
-  query: {fields:'id,name,slug,imageURL', sort: 'name', limit: 5},
+  query: {
+    fields:'id,name,slug,imageURL', 
+    sort: 'name', 
+    limit: 5
+  },
 });
 
 </script>

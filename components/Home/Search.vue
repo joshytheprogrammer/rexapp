@@ -103,8 +103,7 @@ const { data, pending } = await useFetch('/categories/all', {
   baseURL: useRuntimeConfig().public.baseURL,
   query: {
     fields:'id,name',
-    sort: 'name', 
-    limit: 50
+    sort: 'name',
   },
 });
 

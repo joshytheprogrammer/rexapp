@@ -25,7 +25,10 @@
   
   const { data, pending } = await useFetch('/categories/all', {
     baseURL: useRuntimeConfig().public.baseURL,
-    query: {fields:'id,name,slug', sort: 'name', limit: 20},
+    query: {
+      fields:'id,name,slug', 
+      sort: 'name',
+    },
   });
 
   const categories = data.value?.categories;
