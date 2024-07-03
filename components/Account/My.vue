@@ -27,44 +27,40 @@ const pageID = computed(() => route.query.page || "profile");
 let user = ref({});
 let error = ref(null);
 
-onMounted(async () => {
-  if (!token.value) {
+if (!token.value) {
+  notification.setNotification({
+    type: 'error',
+    message: 'Authentication token is missing.',
+  });
+  // await authStore.logout(); 
+  router.push({ name: 'login' });
+}
+
+try {
+  const { data, error: fetchError } = await useFetch('/user/profile', {
+    baseURL: useRuntimeConfig().public.baseURL,
+    headers: {
+      Authorization: 'Bearer ' + token.value,
+    },
+  });
+
+  if (fetchError.value) {
+    error.value = fetchError.value;
+    const errorMessage = fetchError.value.data?.message || "Something went wrong.";
     notification.setNotification({
       type: 'error',
-      message: 'Authentication token is missing.',
+      message: errorMessage,
     });
-    // await authStore.logout(); 
-    router.push({ name: 'login' });
-    return;
+    await authStore.refresh();
   }
 
-  try {
-    const { data, error: fetchError } = await useFetch('/user/profile', {
-      baseURL: useRuntimeConfig().public.baseURL,
-      headers: {
-        Authorization: 'Bearer ' + token.value,
-      },
-    });
-
-    if (fetchError.value) {
-      error.value = fetchError.value;
-      const errorMessage = fetchError.value.data?.message || "Something went wrong.";
-      notification.setNotification({
-        type: 'error',
-        message: errorMessage,
-      });
-      await authStore.refresh(); 
-      return;
-    }
-
-    user.value = data.value.profile;
-  } catch (err) {
-    error.value = err;
-    console.log(err);
-    notification.setNotification({
-      type: 'error',
-      message: 'An unexpected error occurred.',
-    });
-  }
-});
+  user.value = data.value.profile;
+} catch (err) {
+  error.value = err;
+  console.log(err);
+  notification.setNotification({
+    type: 'error',
+    message: 'An unexpected error occurred.',
+  });
+}
 </script>

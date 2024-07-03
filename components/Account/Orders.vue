@@ -18,8 +18,8 @@
         </thead>
         <tbody class="bg-white text-dark ">
           <tr v-for="item in orders" :key="item.id">
-            <td class="border-b border-slate-100 p-4">{{ item.id.substring(item.id.length - 8) }}</td>
-            <td class="border-b border-slate-100 p-4">{{ new Date(item.orderDate).toLocaleString() }}</td>
+            <td class="border-b border-slate-100 p-4">{{ item.id }}</td>
+            <td class="border-b border-slate-100 p-4">{{ new Date(item.created_at).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) + ' ' + new Date(item.created_at).toLocaleTimeString() }}</td>
             <td class="border-b border-slate-200 p-4">{{ item.status }}</td>
             <td class="border-b border-slate-200 p-4">
               <NuxtLink class="hover:text-green-800" :to="'/orders?order='+item.id">View</NuxtLink>

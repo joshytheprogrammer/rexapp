@@ -12,17 +12,6 @@
       </div>
     </div>
     <div class="w-full lg:w-[48%]">
-      <label class="block text-sm font-medium py-2 leading-6 text-gray-900">State</label>
-      <div class="relative rounded-md shadow-sm">
-        <input 
-          type="text" 
-          autocomplete="state"
-          :disabled="!editingAddress"
-          v-model="address.state"
-          class="block w-full rounded-md border-0 py-1.5 pl-1.5 pr-20 text-black shadow-sm outline-none ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-800 sm:text-sm sm:leading-6 disabled:cursor-not-allowed">
-      </div>
-    </div>
-    <div class="w-full lg:w-[48%]">
       <label class="block text-sm font-medium py-2 leading-6 text-gray-900">City</label>
       <div class="relative rounded-md shadow-sm">
         <input 
@@ -30,6 +19,17 @@
           autocomplete="city"
           :disabled="!editingAddress"
           v-model="address.city"
+          class="block w-full rounded-md border-0 py-1.5 pl-1.5 pr-20 text-black shadow-sm outline-none ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-800 sm:text-sm sm:leading-6 disabled:cursor-not-allowed">
+      </div>
+    </div>
+    <div class="w-full lg:w-[48%]">
+      <label class="block text-sm font-medium py-2 leading-6 text-gray-900">State</label>
+      <div class="relative rounded-md shadow-sm">
+        <input 
+          type="text" 
+          autocomplete="state"
+          :disabled="!editingAddress"
+          v-model="address.state"
           class="block w-full rounded-md border-0 py-1.5 pl-1.5 pr-20 text-black shadow-sm outline-none ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-800 sm:text-sm sm:leading-6 disabled:cursor-not-allowed">
       </div>
     </div>
