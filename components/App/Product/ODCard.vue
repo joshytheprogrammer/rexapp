@@ -12,7 +12,7 @@
       </p>
       <span class="block py-2 text-gray-700 font-semibold text-base"> {{ formatPrice(data.product.min_price) }} - {{ formatPrice(data.product.max_price) }}</span>
       <div class="flex">
-        <span class="bg-gray-200 p-2 rounded-full border ">{{ p.quantity }}</span>
+        <span class="bg-black p-2 text-white  border ">{{ p.quantity }}</span>
       </div>
     </div>
   </li>
@@ -22,7 +22,7 @@
 const { formatPrice } = usePriceUtilities();
 const props = defineProps(['p']);
 
-const { data } = await useFetch(() => `/products/byId/${props.p.partId}`, {
+const { data } = await useFetch(() => `/products/byId/${props.p.product_id}`, {
   baseURL: useRuntimeConfig().public.baseURL,
 });
 </script>

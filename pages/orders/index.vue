@@ -31,7 +31,9 @@ if(!isValidObjectId(orderID.value)){
 const { data: order, pending, error } = await useFetch(() => `/orders/byId/${orderID.value}`, {
   baseURL: useRuntimeConfig().public.baseURL,
   headers: {
-    Authorization: 'Bearer ' + token,
+    Authorization: 'Bearer ' + token.value,
   },
 });
+
+console.log(order.value)
 </script>

@@ -29,11 +29,17 @@
             <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
               <NuxtLink to="/account/my?page=wishlist">My Wishlist</NuxtLink>
             </li>
-            <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
+            <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300" v-if="!getUserData()">
               <NuxtLink to="/account/auth#login">Login</NuxtLink>
             </li>
-            <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
+            <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300" v-else>
+              <NuxtLink to="/account/my?page=orders">My Orders</NuxtLink>
+            </li>
+            <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300" v-if="!getUserData()">
               <NuxtLink to="/account/auth#register">Register</NuxtLink>
+            </li>
+            <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300" v-else>
+              <!-- <NuxtLink to="/account/auth#register">Register</NuxtLink> -->
             </li>
           </ul>
         </div>
@@ -53,7 +59,7 @@
               <NuxtLink to="/about/privacy">Privacy Policy</NuxtLink>
             </li>
             <li class="cursor-pointer py-2 hover:text-green-800 transition-all duration-300">
-              <NuxtLink to="/account/auth">Register</NuxtLink>
+              <NuxtLink to="/about/terms">Terms and Conditions</NuxtLink>
             </li>
           </ul>
         </div>
@@ -84,6 +90,7 @@
 </template>
 
 <script setup>
+const { getUserData } = useUserUtilities();
 
 const { data } = await useFetch('/categories/all', {
     baseURL: useRuntimeConfig().public.baseURL,
