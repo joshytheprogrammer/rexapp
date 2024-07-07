@@ -5,7 +5,7 @@
       <div class="w-full col-span-6 mb-4 rounded-md shadow-lg border bg-white px-4  py-4 space-y-4">
         <h2 class=" text-xl lg:text-2xl font-normal underline underline-offset-8">Order Details</h2>
         <section class="lg:overflow-y-auto lg:max-h-96">
-          <AppProductODCard v-for="p in order.items" :key="p.partId" :p="p"  />
+          <AppProductODCard v-for="p in order.items" :key="p.id" :p="p"  />
         </section>
       </div>
       <div class="w-full h-full col-span-2 block mb-4 rounded-md shadow-lg border bg-white px-4 lg:px-6 py-4 space-y-2 text-sm font-normal">

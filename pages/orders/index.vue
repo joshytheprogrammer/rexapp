@@ -35,5 +35,5 @@ const { data: order, pending, error } = await useFetch(() => `/orders/byId/${ord
   },
 });
 
-console.log(order.value)
+// console.log(order.value)
 </script>
