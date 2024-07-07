@@ -24,5 +24,6 @@ const props = defineProps(['p']);
 
 const { data } = await useFetch(() => `/products/byId/${props.p.product_id}`, {
   baseURL: useRuntimeConfig().public.baseURL,
+  key: `${props.p.product_id}`
 });
 </script>
